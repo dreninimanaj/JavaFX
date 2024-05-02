@@ -11,18 +11,18 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<junit.version>5.10.0</junit.version>  </properties>
+<junit.version>5.8.2</junit.version>  </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>17.0.6</version>
+      <version>18.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>17.0.6</version>
+      <version>18.0.1</version>
     </dependency>
 <dependency>
       <groupId>org.openjfx</groupId>
@@ -34,7 +34,34 @@
         <artifactId>javafx-swing</artifactId>
         <version>17.0.6</version>
       </dependency>
-<dependency>
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.36.0.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx -->
+    <dependency>
+      <groupId>de.jensd</groupId>
+      <artifactId>fontawesomefx-materialdesignfont</artifactId>
+      <version>2.0.26-9.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>de.jensd</groupId>
+      <artifactId>fontawesomefx-commons</artifactId>
+      <version>9.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>14</version>
+    </dependency>
+    <dependency>
+      <groupId>de.jensd</groupId>
+      <artifactId>fontawesomefx-fontawesome</artifactId>
+      <version>4.7.0-9.1.2</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
       <version>17.0.6</version>
@@ -124,7 +151,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.example.knk_gr23/com.example.knk_gr23.HelloApplication</mainClass>
+              <mainClass>com.example.knk_gr23/com.example.knk_gr23.App</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
