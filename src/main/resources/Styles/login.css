@@ -1,0 +1,41 @@
+.account_selector{
+    -fx-background-color: #ECF39E;
+}
+.account_selector .label{
+    -fx-background-color: #ECF39E;
+    -fx-font-size: 1.1em;
+}
+
+.account_selector .arrow {
+    -fx-background-color: #132A13;
+}
+
+#choice-box-popup-menu {
+    -fx-background-color: #ECF39E;
+}
+
+.input_field{
+    -fx-background-color: #FFFFFF;
+    -fx-pref-height: 35;
+    -fx-font-size: 1.2em;
+}
+
+.login_form_container Label{
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
+.login_form_container Button{
+    -fx-background-color: #132A13;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-height: 50;
+    -fx-pref-width: 30;
+    -fx-font-size: 1.2em;
+}
+.login_form_container Button:hover{
+    -fx-cursor: hand;
+}
+.error_label{
+    -fx-text-fill: red;
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
