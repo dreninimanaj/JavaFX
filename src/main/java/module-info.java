@@ -18,5 +18,6 @@ module com.example.knk_gr23 {
 
 
     exports com.example.knk_gr23.App;
+    exports com.example.knk_gr23.Controllers.Client to javafx.fxml;
     opens com.example.knk_gr23.Controllers to javafx.fxml;
 }

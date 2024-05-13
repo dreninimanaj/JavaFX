@@ -1023,7 +1023,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="297" parent="1" name="menaxhimikredise">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-05-11.21:14:45</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-05-12.13:44:34</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="298" parent="1" name="mysql.infoschema">
