@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 public class AdminMenuControllers implements Initializable {
     public Button create_client_btn;
     public Button clients_btn;
-    public Button deposit_btn;
+    public Button requests_btn;
     public Button logout_btn;
 
     @Override
