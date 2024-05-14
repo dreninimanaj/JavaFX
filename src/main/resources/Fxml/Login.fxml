@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane opacity="0.5" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.LoginController">
-   <VBox alignment="CENTER" layoutX="-1.0" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #27AE60;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+   <VBox alignment="CENTER" layoutX="-1.0" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #132A13;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
       <FontAwesomeIconView fill="#1e0000" glyphName="DOLLAR" size="50.0" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit" textAlignment="CENTER" wrappingWidth="233.748046875">
          <font>
