@@ -1,0 +1,265 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_X\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
+@@ -8,7 +7,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="15" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Client;\r\n\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.Button;\r\n\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class ClientMenuController implements Initializable {\r\n    public Button home_btn;\r\n    public Button apply_btn;\r\n    public Button profile_btn;\r\n    public Button logout_btn;\r\n    public Button apply_btn1;\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java b/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java	
++++ b/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java	
+@@ -1,6 +1,9 @@
+ package com.example.knk_gr23.Controllers.Client;
+ 
++import com.example.knk_gr23.App.Navigator;
++import javafx.event.ActionEvent;
+ import javafx.fxml.Initializable;
++import javafx.scene.Scene;
+ import javafx.scene.control.Button;
+ 
+ import java.net.URL;
+@@ -15,4 +18,16 @@
+ 
+     @Override
+     public void initialize(URL url, ResourceBundle resourceBundle) {}
++
++    public void handleProfile(ActionEvent actionEvent) {
++
++    }
++
++    public void handleApply(ActionEvent actionEvent) {
++    }
++    public void handleLogout(ActionEvent ae) {
++        Navigator.navigate(ae, Navigator.LOGIN_PAGE);
++    }
++    public void handleHome(ActionEvent actionEvent) {
++    }
+ }
+Index: src/main/resources/Fxml/Client/Client.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n\r\n<?import javafx.scene.layout.*?>\r\n\r\n<BorderPane xmlns=\"http://javafx.com/javafx\"\r\n            xmlns:fx=\"http://javafx.com/fxml\">\r\n<!--            fx:controller=\"com.example.knk_gr23.Controllers.Client.ClientController\"-->\r\n<!--            prefHeight=\"400.0\" prefWidth=\"600.0\">-->\r\n    <left>\r\n        <fx:include source=\"ClientMenu.fxml\"/>\r\n    </left>\r\n    <center>\r\n        <fx:include source=\"Home.fxml\"/>\r\n    </center>\r\n\r\n</BorderPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Fxml/Client/Client.fxml b/src/main/resources/Fxml/Client/Client.fxml
+--- a/src/main/resources/Fxml/Client/Client.fxml	
++++ b/src/main/resources/Fxml/Client/Client.fxml	
+@@ -3,9 +3,10 @@
+ 
+ <?import javafx.scene.layout.*?>
+ 
+-<BorderPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml">
+-<!--            fx:controller="com.example.knk_gr23.Controllers.Client.ClientController"-->
++<BorderPane fx:id="client_parent" xmlns="http://javafx.com/javafx"
++            xmlns:fx="http://javafx.com/fxml"
++            >
++<!--    fx:controller="com.example.knk_gr23.Controllers.Client.ClientController"-->
+ <!--            prefHeight="400.0" prefWidth="600.0">-->
+     <left>
+         <fx:include source="ClientMenu.fxml"/>
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-233.14475.28\">\r\n    <data-source name=\"MenaxhimiKredise@localhost\" uuid=\"f583b88b-15c2-4f50-bac2-686af4977455\">\r\n      <database-info product=\"MySQL\" version=\"8.1.0\" jdbc-version=\"4.2\" driver-name=\"MySQL Connector/J\" driver-version=\"mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)\" dbms=\"MYSQL\" exact-version=\"8.1.0\" exact-driver-version=\"8.2\">\r\n        <extra-name-characters>#@</extra-name-characters>\r\n        <identifier-quote-string>`</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"lower\" quoted-identifiers=\"lower\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <user-name>root</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"schema\" qname=\"@\" />\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	
++++ b/.idea/dataSources.local.xml	
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="dataSourceStorageLocal" created-in="IU-233.14475.28">
++  <component name="dataSourceStorageLocal" created-in="IU-241.15989.150">
+     <data-source name="MenaxhimiKredise@localhost" uuid="f583b88b-15c2-4f50-bac2-686af4977455">
+       <database-info product="MySQL" version="8.1.0" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.1.0" exact-driver-version="8.2">
+         <extra-name-characters>#@</extra-name-characters>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"AdminMenu\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;dreninimanaj&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/DiellzaJ/KNK_Gr23.git&quot;,\r\n    &quot;accountId&quot;: &quot;b16fd151-d8c9-4785-a795-27e3016b4394&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fsNFHZLn9OGeSg8UQpDH1Iaclh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"\" />\r\n      <created>1714585722488</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714585722488</updated>\r\n      <workItem from=\"1714585723910\" duration=\"10000\" />\r\n      <workItem from=\"1715438616980\" duration=\"109000\" />\r\n      <workItem from=\"1715438746358\" duration=\"3811000\" />\r\n      <workItem from=\"1715449632427\" duration=\"9349000\" />\r\n      <workItem from=\"1715503128877\" duration=\"2492000\" />\r\n      <workItem from=\"1715507130172\" duration=\"3612000\" />\r\n      <workItem from=\"1715517007531\" duration=\"6400000\" />\r\n      <workItem from=\"1715588838820\" duration=\"7440000\" />\r\n      <workItem from=\"1715608436396\" duration=\"1936000\" />\r\n      <workItem from=\"1715679192402\" duration=\"1230000\" />\r\n      <workItem from=\"1715708300554\" duration=\"4926000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"begin\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714675946834</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714675946834</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"b\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715467718220</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715467718220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"b1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715510728827</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715510728827</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"AdminMenu\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715715384194</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715715384194</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"start\" />\r\n    <MESSAGE value=\"begin\" />\r\n    <MESSAGE value=\"b\" />\r\n    <MESSAGE value=\"b1\" />\r\n    <MESSAGE value=\"AdminMenu\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"AdminMenu\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,9 +4,19 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="AdminMenu">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" afterDir="false" />
++    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="other changes">
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -16,8 +26,8 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="CSS File" />
+         <option value="FxmlFile" />
++        <option value="CSS File" />
+         <option value="Class" />
+       </list>
+     </option>
+@@ -60,15 +70,16 @@
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/fakulltet&quot;,
+     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   },
+   &quot;keyToStringList&quot;: {
+@@ -81,6 +92,14 @@
+     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+       <recent name="" />
+     </key>
++  </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
++        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
++      </set>
++    </attachedChunks>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -98,9 +117,8 @@
+       <workItem from="1715507130172" duration="3612000" />
+       <workItem from="1715517007531" duration="6400000" />
+       <workItem from="1715588838820" duration="7440000" />
+-      <workItem from="1715608436396" duration="1936000" />
+-      <workItem from="1715679192402" duration="1230000" />
+-      <workItem from="1715708300554" duration="4926000" />
++      <workItem from="1715608436396" duration="8828000" />
++      <workItem from="1715774478326" duration="10898000" />
+     </task>
+     <task id="LOCAL-00001" summary="begin">
+       <option name="closed" value="true" />
+@@ -126,26 +144,46 @@
+       <option name="project" value="LOCAL" />
+       <updated>1715510728827</updated>
+     </task>
+-    <task id="LOCAL-00004" summary="AdminMenu">
++    <task id="LOCAL-00004" summary="Navigator fix, other changes">
+       <option name="closed" value="true" />
+-      <created>1715715384194</created>
++      <created>1715610795040</created>
+       <option name="number" value="00004" />
+       <option name="presentableId" value="LOCAL-00004" />
+       <option name="project" value="LOCAL" />
+-      <updated>1715715384194</updated>
++      <updated>1715610795040</updated>
++    </task>
++    <task id="LOCAL-00005" summary="other changes">
++      <option name="closed" value="true" />
++      <created>1715610818540</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1715610818540</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="start" />
+     <MESSAGE value="begin" />
+     <MESSAGE value="b" />
+     <MESSAGE value="b1" />
+-    <MESSAGE value="AdminMenu" />
+-    <option name="LAST_COMMIT_MESSAGE" value="AdminMenu" />
++    <MESSAGE value="Navigator fix, other changes" />
++    <MESSAGE value="other changes" />
++    <option name="LAST_COMMIT_MESSAGE" value="other changes" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module com.example.knk_gr23 {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n//    requires javafx.web;\r\n//    requires de.jensd.fx.glyphs.commons;\r\n//    requires de.jensd.fx.glyphs.materialdesignicons;\r\n    requires de.jensd.fx.glyphs.fontawesome;\r\n    requires java.sql;\r\n    requires org.xerial.sqlitejdbc;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires com.dlsc.formsfx;\r\n    requires net.synedra.validatorfx;\r\n    requires org.kordamp.ikonli.javafx;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    requires eu.hansolo.tilesfx;\r\n    //requires com.almasb.fxgl.all;\r\n\r\n\r\n    exports com.example.knk_gr23.App;\r\n    exports com.example.knk_gr23.Controllers.Client to javafx.fxml;\r\n    opens com.example.knk_gr23.Controllers to javafx.fxml;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	
++++ b/src/main/java/module-info.java	
+@@ -19,5 +19,6 @@
+ 
+     exports com.example.knk_gr23.App;
+     exports com.example.knk_gr23.Controllers.Client to javafx.fxml;
++    opens com.example.knk_gr23.Controllers.Client to javafx.fxml;
+     opens com.example.knk_gr23.Controllers to javafx.fxml;
+ }
+\ No newline at end of file
