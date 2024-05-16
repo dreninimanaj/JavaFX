@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: GREEN;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.CreditBoxController">
+   <children>
+      <Button fx:id="loan_btn" layoutX="502.0" layoutY="22.0" mnemonicParsing="false" onAction="#handlePay" text="PAY LOAN" />
+      <Button fx:id="tbl_btn" layoutX="408.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleTable" text="TABLE VIEW" />
+   </children>
+</AnchorPane>

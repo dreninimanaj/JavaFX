@@ -11,8 +11,11 @@ import java.io.IOException;
 
 public class Navigator {
     public final static String LOGIN_PAGE = "/Fxml/Login.fxml";
-    public final static String HOME_PAGE = "/Fxml/Client/Client.fxml";
+    public final static String HOME_PAGE = "/Fxml/Client/ClientH.fxml";
     public final static String ADMIN_PAGE = "/Fxml/Admin/Admin.fxml";
+    public final static String PAY_PAGE = "/Fxml/Client/PayDebt.fxml";
+    public final static String TABLE_PAGE = "/Fxml/Client/TableLoans.fxml";
+    public final static String ADD_LOAN_PAGE = "/Fxml/Client/AddLoan.fxml";
 
     // Method to navigate using an event
     public static void navigate(Event event, String form){
@@ -44,7 +47,7 @@ public class Navigator {
             stage.setResizable(false);
             stage.show();
         } catch (IOException ioe) {
-            ioe.printStackTrace(); // Better error handling or logging here
+            ioe.printStackTrace();
         }
     }
 

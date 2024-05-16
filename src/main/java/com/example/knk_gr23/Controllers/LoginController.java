@@ -27,8 +27,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handleLogin(ActionEvent ae) {
-        ClientController clientController = new ClientController(); // Assuming ClientController is needed for HOME_PAGE
-        Navigator.navigate(ae, Navigator.HOME_PAGE, clientController);
+//        ClientController clientController = new ClientController();
+        Navigator.navigate(ae, Navigator.HOME_PAGE);
     }
 
 
