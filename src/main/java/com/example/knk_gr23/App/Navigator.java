@@ -13,6 +13,7 @@ public class Navigator {
     public final static String LOGIN_PAGE = "/Fxml/Login.fxml";
     public final static String HOME_PAGE = "/Fxml/Client/Client.fxml";
     public final static String ADMIN_PAGE = "/Fxml/Admin/Admin.fxml";
+    public final static String PAYMENT_PAGE = "/Fxml/Client/PayDebt.fxml";
 
     // Method to navigate using an event
     public static void navigate(Event event, String form){
