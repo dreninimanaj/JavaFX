@@ -1,0 +1,14 @@
+Index: src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Admin;public class PayDebtController {\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java b/src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java	
++++ b/src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java	
+@@ -1,2 +1,4 @@
+-package com.example.knk_gr23.Controllers.Admin;public class PayDebtController {
++package com.example.knk_gr23.Controllers.Admin;
++
++public class PayDebtController {
+ }

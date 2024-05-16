@@ -1,0 +1,516 @@
+Index: src/main/resources/Fxml/Client/PayDebt.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import java.lang.*?>\r\n<?import java.util.*?>\r\n<?import javafx.scene.*?>\r\n<?import javafx.scene.control.*?>\r\n<?import javafx.scene.layout.*?>\r\n\r\n<AnchorPane xmlns=\"http://javafx.com/javafx\"\r\n            xmlns:fx=\"http://javafx.com/fxml\"\r\n            fx:controller=\"com.example.knk_gr23.Controllers.Admin.PayDebtController\"\r\n            prefHeight=\"400.0\" prefWidth=\"600.0\" >\r\n\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Fxml/Client/PayDebt.fxml b/src/main/resources/Fxml/Client/PayDebt.fxml
+--- a/src/main/resources/Fxml/Client/PayDebt.fxml	
++++ b/src/main/resources/Fxml/Client/PayDebt.fxml	
+@@ -6,9 +6,19 @@
+ <?import javafx.scene.control.*?>
+ <?import javafx.scene.layout.*?>
+ 
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.example.knk_gr23.Controllers.Admin.PayDebtController"
+-            prefHeight="400.0" prefWidth="600.0" >
+-
+-</AnchorPane>
++<BorderPane xmlns="http://javafx.com/javafx"
++            xmlns:fx="http://javafx.com/fxml">
++    <!--            fx:controller="com.example.knk_gr23.Controllers.Client.ClientController"-->
++    <!--            prefHeight="400.0" prefWidth="600.0">-->
++    <left>
++        <fx:include source="ClientMenu.fxml"/>
++    </left>
++    <center>
++        <AnchorPane xmlns="http://javafx.com/javafx"
++                    xmlns:fx="http://javafx.com/fxml"
++                    prefHeight="400.0" prefWidth="600.0" >
++        </AnchorPane>
++    </center>
++
++</BorderPane>
++
+Index: src/main/resources/Fxml/Client/ClientMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.shape.Line?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<VBox maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"750.0\" prefWidth=\"180.0\" styleClass=\"main_menu_container\" stylesheets=\"@../../Styles/ClientMenu.css\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.example.knk_gr23.Controllers.Client.ClientMenuController\">\r\n   <AnchorPane prefHeight=\"720.0\" prefWidth=\"160.0\" styleClass=\"left_container\">\r\n      <VBox prefHeight=\"120.0\" prefWidth=\"130.0\" styleClass=\"menu_down\" AnchorPane.bottomAnchor=\"0.0\" AnchorPane.leftAnchor=\"14.0\" AnchorPane.rightAnchor=\"14.0\">\r\n         <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Apply for a loan\" />\r\n         <Label text=\"Write your data here and apply!\" />\r\n         <Button fx:id=\"apply_btn1\" mnemonicParsing=\"false\"  text=\"Add\">\r\n            <graphic>\r\n               <FontAwesomeIconView glyphName=\"PLUS\" />\r\n            </graphic>\r\n         </Button>\r\n      </VBox>\r\n      <VBox prefHeight=\"80.0\" prefWidth=\"160.0\" styleClass=\"title_container\" AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"0.0\">\r\n         <FontAwesomeIconView glyphName=\"DOLLAR\" size=\"30.0\" />\r\n         <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"SafeCredits\" />\r\n      </VBox>\r\n      <VBox prefHeight=\"400.0\" prefWidth=\"160.0\" styleClass=\"menu_container\" AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"100.0\">\r\n         <Button fx:id=\"home_btn\" mnemonicParsing=\"false\"  text=\"Home\">\r\n            <graphic>\r\n               <FontAwesomeIconView glyphName=\"HOME\" size=\"20.0\" />\r\n            </graphic>\r\n         </Button>\r\n         <Button fx:id=\"apply_btn\" mnemonicParsing=\"false\"  text=\"Apply\">\r\n            <graphic>\r\n               <FontAwesomeIconView glyphName=\"HANDSHAKE_ALT\" size=\"20.0\" />\r\n            </graphic>\r\n         </Button>\r\n         <Line endX=\"120.0\" />\r\n         <Button fx:id=\"profile_btn\" mnemonicParsing=\"false\"  styleClass=\"alt_menu_button\" text=\"profile\">\r\n            <graphic>\r\n               <FontAwesomeIconView glyphName=\"USER\" size=\"20.0\" />\r\n            </graphic>\r\n         </Button>\r\n         <Button fx:id=\"logout_btn\" mnemonicParsing=\"false\"  styleClass=\"alt_menu_button\" text=\"logout\" onAction=\"#handleLogout\">\r\n            <graphic>\r\n               <FontAwesomeIconView glyphName=\"ARROW_RIGHT\" />\r\n            </graphic>\r\n         </Button>\r\n      </VBox>\r\n   </AnchorPane>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Fxml/Client/ClientMenu.fxml b/src/main/resources/Fxml/Client/ClientMenu.fxml
+--- a/src/main/resources/Fxml/Client/ClientMenu.fxml	
++++ b/src/main/resources/Fxml/Client/ClientMenu.fxml	
+@@ -8,12 +8,12 @@
+ <?import javafx.scene.shape.Line?>
+ <?import javafx.scene.text.Text?>
+ 
+-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.ClientMenuController">
++<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.ClientMenuController" >
+    <AnchorPane prefHeight="720.0" prefWidth="160.0" styleClass="left_container">
+       <VBox prefHeight="120.0" prefWidth="130.0" styleClass="menu_down" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apply for a loan" />
+          <Label text="Write your data here and apply!" />
+-         <Button fx:id="apply_btn1" mnemonicParsing="false"  text="Add">
++         <Button fx:id="apply_btn1" mnemonicParsing="false" onAction="#handleApply" text="Add">
+             <graphic>
+                <FontAwesomeIconView glyphName="PLUS" />
+             </graphic>
+@@ -24,23 +24,23 @@
+          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SafeCredits" />
+       </VBox>
+       <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+-         <Button fx:id="home_btn" mnemonicParsing="false"  text="Home">
++         <Button fx:id="home_btn" mnemonicParsing="false" text="Home">
+             <graphic>
+                <FontAwesomeIconView glyphName="HOME" size="20.0" />
+             </graphic>
+          </Button>
+-         <Button fx:id="apply_btn" mnemonicParsing="false"  text="Apply">
++         <Button fx:id="apply_btn" mnemonicParsing="false" onAction="#handleApply" text="Apply">
+             <graphic>
+                <FontAwesomeIconView glyphName="HANDSHAKE_ALT" size="20.0" />
+             </graphic>
+          </Button>
+          <Line endX="120.0" />
+-         <Button fx:id="profile_btn" mnemonicParsing="false"  styleClass="alt_menu_button" text="profile">
++         <Button fx:id="profile_btn" mnemonicParsing="false" onAction="#handleProfile" styleClass="alt_menu_button" text="profile">
+             <graphic>
+                <FontAwesomeIconView glyphName="USER" size="20.0" />
+             </graphic>
+          </Button>
+-         <Button fx:id="logout_btn" mnemonicParsing="false"  styleClass="alt_menu_button" text="logout" onAction="#handleLogout">
++         <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#handleLogout" styleClass="alt_menu_button" text="logout">
+             <graphic>
+                <FontAwesomeIconView glyphName="ARROW_RIGHT" />
+             </graphic>
+Index: src/main/java/com/example/knk_gr23/Models/Model.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Models;\r\n\r\npublic class Model {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Models/Model.java b/src/main/java/com/example/knk_gr23/Models/Model.java
+--- a/src/main/java/com/example/knk_gr23/Models/Model.java	
++++ b/src/main/java/com/example/knk_gr23/Models/Model.java	
+@@ -1,4 +1,30 @@
+ package com.example.knk_gr23.Models;
+ 
++import java.sql.ResultSet;
++
+ public class Model {
++    static class User {
++        private int id;
++        private String username;
++
++        private User(int id, String username) {
++            this.id = id;
++            this.username = username;
++        }
++
++        public static User getInstanceFromResultSet(ResultSet resultSet) {
++            try {
++                int id = resultSet.getInt("id");
++                String username = resultSet.getString("username");
++                return new User(id, username);
++            } catch (Exception var3) {
++                return null;
++            }
++        }
++
++        public void printoDetajet() {
++            System.out.println("Id: " + this.id);
++            System.out.println("Username: " + this.username);
++        }
++    }
+ }
+Index: src/main/java/com/example/knk_gr23/App/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.App;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\n\r\npublic class Main extends Application {\r\n\r\n    public void start(Stage stage){\r\n        Navigator.navigate(stage, Navigator.ADMIN_PAGE);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/App/Main.java b/src/main/java/com/example/knk_gr23/App/Main.java
+--- a/src/main/java/com/example/knk_gr23/App/Main.java	
++++ b/src/main/java/com/example/knk_gr23/App/Main.java	
+@@ -6,6 +6,6 @@
+ public class Main extends Application {
+ 
+     public void start(Stage stage){
+-        Navigator.navigate(stage, Navigator.ADMIN_PAGE);
++        Navigator.navigate(stage, Navigator.APPLY_PAGE);
+     }
+ }
+Index: src/main/java/com/example/knk_gr23/App/Navigator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.App;\r\n\r\nimport javafx.event.Event;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Node;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.layout.BorderPane;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class Navigator {\r\n    public final static String LOGIN_PAGE = \"/Fxml/Login.fxml\";\r\n    public final static String HOME_PAGE = \"/Fxml/Client/Client.fxml\";\r\n    public final static String ADMIN_PAGE = \"/Fxml/Admin/Admin.fxml\";\r\n\r\n    // Method to navigate using an event\r\n    public static void navigate(Event event, String form){\r\n        Node eventNode = (Node) event.getSource();\r\n        Stage stage = (Stage) eventNode.getScene().getWindow();\r\n        navigate(stage, form);\r\n    }\r\n\r\n    public static void navigate(Event event, String form, Object controller) {\r\n        Node eventNode = (Node) event.getSource();\r\n        Stage stage = (Stage) eventNode.getScene().getWindow();\r\n        navigate(stage, form, controller);\r\n    }\r\n\r\n    // Basic navigation method\r\n    public static void navigate(Stage stage, String form){\r\n        navigate(stage, form, null);\r\n    }\r\n\r\n    // Overloaded method to set a controller explicitly\r\n    public static void navigate(Stage stage, String form, Object controller){\r\n        FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(form));\r\n        if (controller != null) {\r\n            loader.setController(controller);\r\n        }\r\n        try {\r\n            Scene newScene = new Scene(loader.load());\r\n            stage.setScene(newScene);\r\n            stage.setResizable(false);\r\n            stage.show();\r\n        } catch (IOException ioe) {\r\n            ioe.printStackTrace(); // Better error handling or logging here\r\n        }\r\n    }\r\n\r\n    public static void navigate(BorderPane borderPane, String fxmlPath) {\r\n        FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(fxmlPath));\r\n        try {\r\n            Node node = loader.load();\r\n            borderPane.setCenter(node);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/App/Navigator.java b/src/main/java/com/example/knk_gr23/App/Navigator.java
+--- a/src/main/java/com/example/knk_gr23/App/Navigator.java	
++++ b/src/main/java/com/example/knk_gr23/App/Navigator.java	
+@@ -11,8 +11,9 @@
+ 
+ public class Navigator {
+     public final static String LOGIN_PAGE = "/Fxml/Login.fxml";
+-    public final static String HOME_PAGE = "/Fxml/Client/Client.fxml";
++    public final static String HOME_PAGE = "/Fxml/Client/ClientH.fxml";
+     public final static String ADMIN_PAGE = "/Fxml/Admin/Admin.fxml";
++    public final static String APPLY_PAGE = "/Fxml/Client/PayDebt.fxml";
+ 
+     // Method to navigate using an event
+     public static void navigate(Event event, String form){
+@@ -44,7 +45,7 @@
+             stage.setResizable(false);
+             stage.show();
+         } catch (IOException ioe) {
+-            ioe.printStackTrace(); // Better error handling or logging here
++            ioe.printStackTrace();
+         }
+     }
+ 
+Index: src/main/java/com/example/knk_gr23/Services/DBConnector.java
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Services/DBConnector.java b/src/main/java/com/example/knk_gr23/Services/DBConnector.java
+deleted file mode 100644
+--- a/src/main/java/com/example/knk_gr23/Services/DBConnector.java	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-package com.example.knk_gr23.Services;
+-
+-
+-import java.sql.Connection;
+-import java.sql.DriverManager;
+-import java.sql.SQLException;
+-
+-public class DBConnector {
+-    private static String URL = "jdbc:mysql://localhost:3306/knk2024";
+-    private static String USER = "root";
+-    private static String PASSWORD = "root";
+-    private static Connection connection = null;
+-
+-    public static Connection getConnection(){
+-        if(connection == null){
+-            try {
+-                connection = DriverManager.getConnection(
+-                        URL, USER, PASSWORD
+-                );
+-            } catch (SQLException e) {
+-                throw new RuntimeException(e);
+-            }
+-        }
+-        return connection;
+-    }
+-}
+Index: src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Client;\r\n\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.Button;\r\n\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class ClientMenuController implements Initializable {\r\n    public Button home_btn;\r\n    public Button apply_btn;\r\n    public Button profile_btn;\r\n    public Button logout_btn;\r\n    public Button apply_btn1;\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java b/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java	
++++ b/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java	
+@@ -1,18 +1,38 @@
+ package com.example.knk_gr23.Controllers.Client;
+ 
++import com.example.knk_gr23.App.Navigator;
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
+ import javafx.fxml.Initializable;
+ import javafx.scene.control.Button;
++import javafx.scene.layout.BorderPane;
++
+ 
+ import java.net.URL;
+ import java.util.ResourceBundle;
+ 
+ public class ClientMenuController implements Initializable {
++
+     public Button home_btn;
+     public Button apply_btn;
+     public Button profile_btn;
+     public Button logout_btn;
+     public Button apply_btn1;
+ 
++
+     @Override
+     public void initialize(URL url, ResourceBundle resourceBundle) {}
++
++    @FXML
++    public void handleLogout(ActionEvent ae) {
++        Navigator.navigate(ae, Navigator.LOGIN_PAGE);
++    }
++
++    @FXML
++    private void handleApply(ActionEvent ae) {
++        Navigator.navigate(ae, Navigator.APPLY_PAGE);
++    }
++
++    public void handleProfile(ActionEvent actionEvent) {
++    }
+ }
+Index: src/main/java/com/example/knk_gr23/Models/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Models/User.java b/src/main/java/com/example/knk_gr23/Models/User.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/knk_gr23/Models/User.java	
+@@ -0,0 +1,4 @@
++package com.example.knk_gr23.Models;
++
++public class User {
++}
+Index: src/main/java/com/example/knk_gr23/Services/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Services/UserService.java b/src/main/java/com/example/knk_gr23/Services/UserService.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/knk_gr23/Services/UserService.java	
+@@ -0,0 +1,37 @@
++//package com.example.knk_gr23.Services;
++//
++//import model.User;
++//import model.dto.CreateUserDto;
++//import model.dto.LoginUserDto;
++//import model.dto.UserDto;
++//import repository.UserRepository;
++//
++//public class UserService {
++//    public UserService() {
++//    }
++//
++//    public static boolean signUp(UserDto userData) {
++//        String password = userData.getPassword();
++//        String confirmPassword = userData.getConfirmPassword();
++//        if (!password.equals(confirmPassword)) {
++//            return false;
++//        } else {
++//            String salt = PasswordHasher.generateSalt();
++//            String passwordHash = PasswordHasher.generateSaltedHash(password, salt);
++//            CreateUserDto createUserData = new CreateUserDto(userData.getFirstName(), userData.getLastName(), userData.getEmail(), salt, passwordHash);
++//            return UserRepository.create(createUserData);
++//        }
++//    }
++//
++//    public static boolean login(LoginUserDto loginData) {
++//        User user = UserRepository.getByEmail(loginData.getEmail());
++//        if (user == null) {
++//            return false;
++//        } else {
++//            String password = loginData.getPassword();
++//            String salt = user.getSalt();
++//            String passwordHash = user.getPasswordHash();
++//            return PasswordHasher.compareSaltedHash(password, salt, passwordHash);
++//        }
++//    }
++//}
+Index: src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java b/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java	
+@@ -0,0 +1,62 @@
++//package com.example.knk_gr23.Reposirtory;
++//
++//
++//import java.sql.Connection;
++//import java.sql.PreparedStatement;
++//import java.sql.ResultSet;
++////import model.User;
++////import model.dto.CreateUserDto;
++////import service.DBConnector;
++//
++//public class UserRepository {
++//    public UserRepository() {
++//    }
++//
++//    public static boolean create(CreateUserDto userData) {
++//        Connection conn = DBConnector.getConnection();
++//        String query = "INSERT INTO USER (firstName, lastName, email, salt, passwordHash)\nVALUE (?, ?, ?, ?, ?)\n";
++//
++//        try {
++//            PreparedStatement pst = conn.prepareStatement(query);
++//            pst.setString(1, userData.getFirstName());
++//            pst.setString(2, userData.getLastName());
++//            pst.setString(3, userData.getEmail());
++//            pst.setString(4, userData.getSalt());
++//            pst.setString(5, userData.getPasswordHash());
++//            pst.execute();
++//            pst.close();
++//            conn.close();
++//            return true;
++//        } catch (Exception var4) {
++//            return false;
++//        }
++//    }
++//
++//    public static User getByEmail(String email) {
++//        String query = "SELECT * FROM USER WHERE email = ? LIMIT 1";
++//        Connection connection = DBConnector.getConnection();
++//
++//        try {
++//            PreparedStatement pst = connection.prepareStatement(query);
++//            pst.setString(1, email);
++//            ResultSet result = pst.executeQuery();
++//            return result.next() ? getFromResultSet(result) : null;
++//        } catch (Exception var5) {
++//            return null;
++//        }
++//    }
++//
++//    private static User getFromResultSet(ResultSet result) {
++//        try {
++//            int id = result.getInt("id");
++//            String firstName = result.getString("firstName");
++//            String lastName = result.getString("lastName");
++//            String email = result.getString("email");
++//            String salt = result.getString("salt");
++//            String passwordHash = result.getString("passwordHash");
++//            return new User(id, firstName, lastName, email, salt, passwordHash);
++//        } catch (Exception var7) {
++//            return null;
++//        }
++//    }
++//}
+Index: src/main/java/com/example/knk_gr23/Controllers/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers;\r\n\r\nimport com.example.knk_gr23.App.Navigator;\r\nimport com.example.knk_gr23.Controllers.Client.ClientController;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.*;\r\n\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class LoginController implements Initializable {\r\n\r\n    @FXML\r\n    public Label adresa_perdoruesit;\r\n    @FXML\r\n    public Button login_btn;\r\n    @FXML\r\n    public PasswordField password_hapsira;\r\n    @FXML\r\n    public ChoiceBox acc_selector;\r\n    @FXML\r\n    public Label error_lbl;\r\n    @FXML\r\n    public TextField textfield_perdoruesit;\r\n\r\n    @FXML\r\n    private void handleLogin(ActionEvent ae) {\r\n        ClientController clientController = new ClientController(); // Assuming ClientController is needed for HOME_PAGE\r\n        Navigator.navigate(ae, Navigator.HOME_PAGE, clientController);\r\n    }\r\n\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n//        login_btn.setOnAction(event -> {\r\n//            ClientController clientController = new ClientController();\r\n//            Navigator.navigate(event, Navigator.HOME_PAGE, clientController);\r\n//        });\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/LoginController.java b/src/main/java/com/example/knk_gr23/Controllers/LoginController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/LoginController.java	
++++ b/src/main/java/com/example/knk_gr23/Controllers/LoginController.java	
+@@ -27,8 +27,8 @@
+ 
+     @FXML
+     private void handleLogin(ActionEvent ae) {
+-        ClientController clientController = new ClientController(); // Assuming ClientController is needed for HOME_PAGE
+-        Navigator.navigate(ae, Navigator.HOME_PAGE, clientController);
++//        ClientController clientController = new ClientController();
++        Navigator.navigate(ae, Navigator.HOME_PAGE);
+     }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"b1\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/f583b88b-15c2-4f50-bac2-686af4977455.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/f583b88b-15c2-4f50-bac2-686af4977455.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Views/ViewFactory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Views/ViewFactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;dreninimanaj&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/DiellzaJ/KNK_Gr23.git&quot;,\r\n    &quot;accountId&quot;: &quot;b16fd151-d8c9-4785-a795-27e3016b4394&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fsNFHZLn9OGeSg8UQpDH1Iaclh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"\" />\r\n      <created>1714585722488</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714585722488</updated>\r\n      <workItem from=\"1714585723910\" duration=\"10000\" />\r\n      <workItem from=\"1715438616980\" duration=\"109000\" />\r\n      <workItem from=\"1715438746358\" duration=\"3811000\" />\r\n      <workItem from=\"1715449632427\" duration=\"9349000\" />\r\n      <workItem from=\"1715503128877\" duration=\"2492000\" />\r\n      <workItem from=\"1715507130172\" duration=\"3612000\" />\r\n      <workItem from=\"1715517007531\" duration=\"6400000\" />\r\n      <workItem from=\"1715588838820\" duration=\"7440000\" />\r\n      <workItem from=\"1715608436396\" duration=\"1936000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"begin\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714675946834</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714675946834</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"b\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715467718220</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715467718220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"b1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715510728827</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715510728827</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"start\" />\r\n    <MESSAGE value=\"begin\" />\r\n    <MESSAGE value=\"b\" />\r\n    <MESSAGE value=\"b1\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"b1\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,15 +5,21 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="b1">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f583b88b-15c2-4f50-bac2-686af4977455.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f583b88b-15c2-4f50-bac2-686af4977455.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/User.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/PayDebtController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Views/ViewFactory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/Model.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/DBConnector.java" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientH.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,8 +29,8 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="FxmlFile" />
+         <option value="CSS File" />
++        <option value="FxmlFile" />
+         <option value="Class" />
+       </list>
+     </option>
+@@ -145,6 +151,17 @@
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="start" />
+     <MESSAGE value="begin" />
+@@ -152,4 +169,14 @@
+     <MESSAGE value="b1" />
+     <option name="LAST_COMMIT_MESSAGE" value="b1" />
+   </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <breakpoint enabled="true" type="java-exception">
++          <properties class="java.lang.RuntimeException" package="java.lang" />
++          <option name="timeStamp" value="1" />
++        </breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module com.example.knk_gr23 {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n//    requires javafx.web;\r\n//    requires de.jensd.fx.glyphs.commons;\r\n//    requires de.jensd.fx.glyphs.materialdesignicons;\r\n    requires de.jensd.fx.glyphs.fontawesome;\r\n    requires java.sql;\r\n    requires org.xerial.sqlitejdbc;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires com.dlsc.formsfx;\r\n    requires net.synedra.validatorfx;\r\n    requires org.kordamp.ikonli.javafx;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    requires eu.hansolo.tilesfx;\r\n    //requires com.almasb.fxgl.all;\r\n\r\n\r\n    exports com.example.knk_gr23.App;\r\n    exports com.example.knk_gr23.Controllers.Client to javafx.fxml;\r\n    opens com.example.knk_gr23.Controllers to javafx.fxml;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	
++++ b/src/main/java/module-info.java	
+@@ -19,5 +19,7 @@
+ 
+     exports com.example.knk_gr23.App;
+     exports com.example.knk_gr23.Controllers.Client to javafx.fxml;
++    opens com.example.knk_gr23.Controllers.Client to javafx.fxml;
++    opens com.example.knk_gr23.Controllers.Admin to javafx.fxml;
+     opens com.example.knk_gr23.Controllers to javafx.fxml;
+ }
+\ No newline at end of file
+diff --git a/src/main/resources/Fxml/Client/Client.fxml b/src/main/resources/Fxml/Client/ClientH.fxml
+rename from src/main/resources/Fxml/Client/Client.fxml
+rename to src/main/resources/Fxml/Client/ClientH.fxml
