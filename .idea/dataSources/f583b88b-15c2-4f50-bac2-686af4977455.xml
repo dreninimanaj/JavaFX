@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MenaxhimiKredise@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.52">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>8.1.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="mysql">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="3" parent="1" name="information_schema">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="4" parent="1" name="performance_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="5" parent="1" name="sys">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="6" parent="1" name="besim">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="7" parent="1" name="universiteti">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="8" parent="1" name="login_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="9" parent="1" name="shop">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="10" parent="1" name="main">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="11" parent="1" name="menaxhimikredise">
+      <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2024-05-18.22:44:34</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="12" parent="1" name="db_srs">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <table id="13" parent="11" name="clients">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="14" parent="11" name="loans">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="15" parent="11" name="payments">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="16" parent="11" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="17" parent="13" name="client_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="18" parent="13" name="name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="19" parent="13" name="address">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="20" parent="13" name="phone">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="21" parent="13" name="email">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="22" parent="13" name="employment_status">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="23" parent="13" name="income">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="24" parent="13" name="credit_history">
+      <DasType>text|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="25" parent="13" name="debt_to_income_ratio">
+      <DasType>decimal(5,2 digit)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <index id="26" parent="13" name="PRIMARY">
+      <ColNames>client_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="27" parent="13" name="email">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="29" parent="13" name="email">
+      <UnderlyingIndexName>email</UnderlyingIndexName>
+    </key>
+    <column id="30" parent="14" name="loan_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="31" parent="14" name="client_id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="32" parent="14" name="loan_amount">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="33" parent="14" name="interest_rate">
+      <DasType>decimal(5,2 digit)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="34" parent="14" name="loan_start_date">
+      <DasType>date|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="35" parent="14" name="loan_end_date">
+      <DasType>date|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="36" parent="14" name="loan_status">
+      <DasType>enum(&apos;pending&apos;, &apos;approved&apos;, &apos;rejected&apos;)|0e</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="37" parent="14" name="loans_ibfk_1">
+      <ColNames>client_id</ColNames>
+      <RefColNames>client_id</RefColNames>
+      <RefTableName>clients</RefTableName>
+    </foreign-key>
+    <index id="38" parent="14" name="PRIMARY">
+      <ColNames>loan_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="39" parent="14" name="client_id">
+      <ColNames>client_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="40" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="41" parent="15" name="payment_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="42" parent="15" name="loan_id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="43" parent="15" name="payment_date">
+      <DasType>date|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="44" parent="15" name="scheduled_payment">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="45" parent="15" name="actual_payment">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="46" parent="15" name="principal_amount">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="47" parent="15" name="interest_amount">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="48" parent="15" name="balance">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="49" parent="15" name="payments_ibfk_1">
+      <ColNames>loan_id</ColNames>
+      <RefColNames>loan_id</RefColNames>
+      <RefTableName>loans</RefTableName>
+    </foreign-key>
+    <index id="50" parent="15" name="PRIMARY">
+      <ColNames>payment_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="51" parent="15" name="loan_id">
+      <ColNames>loan_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="52" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="53" parent="16" name="user_id">
+      <AutoIncrement>2</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="54" parent="16" name="username">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="55" parent="16" name="password_hash">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="56" parent="16" name="email">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="57" parent="16" name="role">
+      <DasType>enum(&apos;admin&apos;, &apos;customer&apos;)|0e</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="58" parent="16" name="salt">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <index id="59" parent="16" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="60" parent="16" name="username">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="61" parent="16" name="email">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="63" parent="16" name="username">
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <key id="64" parent="16" name="email">
+      <UnderlyingIndexName>email</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
