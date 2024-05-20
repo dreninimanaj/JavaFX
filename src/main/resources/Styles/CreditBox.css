@@ -1,0 +1,29 @@
+.box_container{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box,#DDDDDD,5,0,0,7);
+}
+
+.credit_date_lbl{
+    -fx-text-fill: #AAAAAA;
+    -fx-font-weight: 700;
+}
+
+.credit_pAddress_lbl{
+    -fx-text-fill: #000000;
+    -fx-font-weight: 700;
+}
+.box_container Line{
+    -fx-stroke: #EEEEEE;
+}
+
+.credit_amount_lbl{
+    -fx-background-color: #132A13;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 2;
+    -fx-padding: 5;
+    -fx-font-weight: 700;
+}
+.credit_amount_lbl FontAwesomeIconVIew{
+    -fx-text-fill: #FFFFFF;
+}
