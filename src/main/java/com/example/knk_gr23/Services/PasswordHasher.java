@@ -53,4 +53,8 @@ public class PasswordHasher {
             throw new RuntimeException("Failed to hash password: " + e.getMessage(), e);
         }
     }
+
+    public static boolean comparePassword(String hashedPassword, String password) {
+        return hashedPassword.equals(password);
+    }
 }

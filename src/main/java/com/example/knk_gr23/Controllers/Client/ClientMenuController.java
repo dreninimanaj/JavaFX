@@ -30,9 +30,15 @@ public class ClientMenuController implements Initializable {
 
     @FXML
     private void handleApply(ActionEvent ae) {
-        Navigator.navigate(ae, Navigator.PAY_PAGE);
+        Navigator.navigate(ae, Navigator.ADD_LOAN_PAGE);
     }
 
     public void handleProfile(ActionEvent actionEvent) {
+        Navigator.navigate(actionEvent, Navigator.CLIENT_PROFILE_PAGE);
+    }
+
+    @FXML
+    public void handleHome(ActionEvent ae) {
+        Navigator.navigate(ae, Navigator.HOME_PAGE);
     }
 }

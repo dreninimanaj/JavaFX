@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane opacity="0.5" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.LoginController">
-   <VBox alignment="CENTER" layoutX="-1.0" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #132A13;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
-      <FontAwesomeIconView fill="#1e0000" glyphName="DOLLAR" size="50.0" />
+<AnchorPane opacity="0.5" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.LoginController">
+   <VBox alignment="CENTER" layoutX="-1.0" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #00780a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <FontAwesomeIconView fill="#1c0000" glyphName="DOLLAR" size="50.0" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit" textAlignment="CENTER" wrappingWidth="233.748046875">
          <font>
             <Font size="28.0" />
@@ -21,13 +15,14 @@
       </Text>
    </VBox>
    <AnchorPane layoutX="234.0" prefHeight="400.0" prefWidth="365.0" styleClass="login_form_container">
-      <Label fx:id="adresa_perdoruesit" layoutX="57.0" layoutY="164.0" text="Username:" />
-      <Label layoutX="57.0" layoutY="207.0" text="Password:" />
-      <Button fx:id="login_btn" layoutX="111.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="20.0" prefWidth="130.0" text="Log In" AnchorPane.bottomAnchor="100.6" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="260.8" />
+      <Label fx:id="adresa_perdoruesit" layoutX="57.0" layoutY="164.0" text="\%lblUsername" />
+      <Label layoutX="57.0" layoutY="207.0" text="\%lblPassword" />
+      <Button fx:id="login_btn" layoutX="111.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="20.0" prefWidth="130.0" style="-fx-background-color: #49a451;" text="Log In" AnchorPane.bottomAnchor="100.6" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="260.8" />
       <PasswordField fx:id="password_hapsira" layoutX="150.0" layoutY="198.0" promptText="password" styleClass="input_field" />
       <ChoiceBox fx:id="acc_selector" layoutX="57.0" layoutY="68.0" prefWidth="50.0" styleClass="account_selector" />
       <Label layoutX="57.0" layoutY="36.0" text="Chose Your Account Type" />
-      <Label fx:id="error_lbl" layoutX="158.0" layoutY="334.0" styleClass="error_label"  />
+      <Label fx:id="error_lbl" layoutX="158.0" layoutY="334.0" styleClass="error_label" />
       <TextField fx:id="textfield_perdoruesit" layoutX="149.0" layoutY="153.0" promptText="username" styleClass="input_field" />
+      <Button layoutY="68.0" mnemonicParsing="false" onAction="#handleChangeLanguage" prefWidth="96.0" text="EN|SQ" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="68.0" />
    </AnchorPane>
 </AnchorPane>
