@@ -1,0 +1,62 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"AdminMenu\">\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"CSS File\" />\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"PUSH_TAGS\">\n      <GitPushTagMode>\n        <option name=\"argument\" value=\"--tags\" />\n        <option name=\"title\" value=\"All\" />\n      </GitPushTagMode>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;dreninimanaj&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/DiellzaJ/KNK_Gr23.git&quot;,\n    &quot;accountId&quot;: &quot;b16fd151-d8c9-4785-a795-27e3016b4394&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2fsNFHZLn9OGeSg8UQpDH1Iaclh\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;mysql&quot;\n    ]\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\n      <recent name=\"\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"\" />\n      <created>1714585722488</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1714585722488</updated>\n      <workItem from=\"1714585723910\" duration=\"10000\" />\n      <workItem from=\"1715438616980\" duration=\"109000\" />\n      <workItem from=\"1715438746358\" duration=\"3811000\" />\n      <workItem from=\"1715449632427\" duration=\"9349000\" />\n      <workItem from=\"1715503128877\" duration=\"2492000\" />\n      <workItem from=\"1715507130172\" duration=\"3612000\" />\n      <workItem from=\"1715517007531\" duration=\"6400000\" />\n      <workItem from=\"1715588838820\" duration=\"7440000\" />\n      <workItem from=\"1715608436396\" duration=\"1936000\" />\n      <workItem from=\"1715679192402\" duration=\"1230000\" />\n      <workItem from=\"1715708300554\" duration=\"4926000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"begin\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1714675946834</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1714675946834</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"b\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1715467718220</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1715467718220</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"b1\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1715510728827</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1715510728827</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"AdminMenu\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1715715384194</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1715715384194</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"5\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"start\" />\n    <MESSAGE value=\"begin\" />\n    <MESSAGE value=\"b\" />\n    <MESSAGE value=\"b1\" />\n    <MESSAGE value=\"AdminMenu\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"AdminMenu\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,7 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="AdminMenu">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -100,7 +100,16 @@
+       <workItem from="1715588838820" duration="7440000" />
+       <workItem from="1715608436396" duration="1936000" />
+       <workItem from="1715679192402" duration="1230000" />
+-      <workItem from="1715708300554" duration="4926000" />
++      <workItem from="1715708300554" duration="5904000" />
++      <workItem from="1715732111980" duration="15000" />
++      <workItem from="1715732170671" duration="291000" />
++      <workItem from="1715733291534" duration="90000" />
++      <workItem from="1715736631129" duration="181000" />
++      <workItem from="1715736984414" duration="750000" />
++      <workItem from="1715777616260" duration="149000" />
++      <workItem from="1715791753479" duration="20000" />
++      <workItem from="1715792102899" duration="501000" />
++      <workItem from="1715793003725" duration="1801000" />
+     </task>
+     <task id="LOCAL-00001" summary="begin">
+       <option name="closed" value="true" />
+@@ -134,7 +143,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1715715384194</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="AdminMenu">
++      <option name="closed" value="true" />
++      <created>1715716366254</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1715716366254</updated>
++    </task>
++    <task id="LOCAL-00006" summary="AdminMenu">
++      <option name="closed" value="true" />
++      <created>1715716397179</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1715716397179</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">

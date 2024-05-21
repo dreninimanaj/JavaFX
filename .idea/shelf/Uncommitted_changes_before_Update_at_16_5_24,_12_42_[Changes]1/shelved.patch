@@ -1,0 +1,77 @@
+Index: src/main/resources/Fxml/Admin/AdminMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>\n<?import javafx.geometry.Insets?>\n<?import javafx.scene.control.Button?>\n<?import javafx.scene.layout.AnchorPane?>\n<?import javafx.scene.layout.VBox?>\n<?import javafx.scene.text.Text?>\n\n<VBox maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"750.0\"\n      prefWidth=\"180.0\" styleClass=\"main_menu_container\" stylesheets=\"@../../Styles/ClientMenu.css\"\n      xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\">\n   <AnchorPane prefHeight=\"730.0\" prefWidth=\"160.0\" styleClass=\"left_container\">\n      <VBox prefHeight=\"80.0\" prefWidth=\"160.0\" styleClass=\"title_container\" AnchorPane.leftAnchor=\"0.0\"\n            AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"0.0\">\n         <FontAwesomeIconView glyphName=\"DOLLAR\" size=\"30\"/>\n         <Text strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"SecureCredit\"/>\n      </VBox>\n      <VBox layoutX=\"40.0\" layoutY=\"265.0\" prefHeight=\"400.0\" prefWidth=\"160.0\" styleClass=\"menu_container\"\n            AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"100.0\">\n         <Button fx:id=\"create_client_btn\" mnemonicParsing=\"false\" text=\"Create Client\">\n            <graphic>\n               <FontAwesomeIconView glyphName=\"PLUS\" size=\"20\"/>\n            </graphic>\n         </Button>\n         <Button fx:id=\"clients_btn\" mnemonicParsing=\"false\" text=\"Clients\">\n            <graphic>\n               <FontAwesomeIconView glyphName=\"LIST\" size=\"20\"/>\n            </graphic>\n         </Button>\n         <Button fx:id=\"requests_btn\" mnemonicParsing=\"false\" text=\"   Requests\">\n            <graphic>\n               <FontAwesomeIconView glyphName=\"EXCLAMATION\" size=\"20\"/>\n            </graphic>\n            <VBox.margin>\n               <Insets/>\n            </VBox.margin>\n         </Button>\n         <Button fx:id=\"logout_btn\" mnemonicParsing=\"false\" styleClass=\"alt_menu_button\" text=\"Logout\">\n            <graphic>\n               <FontAwesomeIconView glyphName=\"EXTERNAL_LINK\" size=\"20\"/>\n            </graphic>\n         </Button>\n      </VBox>\n   </AnchorPane>\n</VBox>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Fxml/Admin/AdminMenu.fxml b/src/main/resources/Fxml/Admin/AdminMenu.fxml
+--- a/src/main/resources/Fxml/Admin/AdminMenu.fxml	
++++ b/src/main/resources/Fxml/Admin/AdminMenu.fxml	
+@@ -7,38 +7,34 @@
+ <?import javafx.scene.layout.VBox?>
+ <?import javafx.scene.text.Text?>
+ 
+-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0"
+-      prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css"
+-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
++<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
+-      <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0"
+-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-         <FontAwesomeIconView glyphName="DOLLAR" size="30"/>
+-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit"/>
++      <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
++         <FontAwesomeIconView glyphName="DOLLAR" size="30" />
++         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit" />
+       </VBox>
+-      <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container"
+-            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
++      <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+          <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create Client">
+             <graphic>
+-               <FontAwesomeIconView glyphName="PLUS" size="20"/>
++               <FontAwesomeIconView glyphName="PLUS" size="20" />
+             </graphic>
+          </Button>
+          <Button fx:id="clients_btn" mnemonicParsing="false" text="Clients">
+             <graphic>
+-               <FontAwesomeIconView glyphName="LIST" size="20"/>
++               <FontAwesomeIconView glyphName="LIST" size="20" />
+             </graphic>
+          </Button>
+          <Button fx:id="requests_btn" mnemonicParsing="false" text="   Requests">
+             <graphic>
+-               <FontAwesomeIconView glyphName="EXCLAMATION" size="20"/>
++               <FontAwesomeIconView glyphName="EXCLAMATION" size="20" />
+             </graphic>
+             <VBox.margin>
+-               <Insets/>
++               <Insets />
+             </VBox.margin>
+          </Button>
+          <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_button" text="Logout">
+             <graphic>
+-               <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20"/>
++               <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
+             </graphic>
+          </Button>
+       </VBox>
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-241.15989.150\">\n    <data-source name=\"MenaxhimiKredise@localhost\" uuid=\"f583b88b-15c2-4f50-bac2-686af4977455\">\n      <database-info product=\"MySQL\" version=\"8.1.0\" jdbc-version=\"4.2\" driver-name=\"MySQL Connector/J\" driver-version=\"mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)\" dbms=\"MYSQL\" exact-version=\"8.1.0\" exact-driver-version=\"8.2\">\n        <extra-name-characters>#@</extra-name-characters>\n        <identifier-quote-string>`</identifier-quote-string>\n      </database-info>\n      <case-sensitivity plain-identifiers=\"lower\" quoted-identifiers=\"lower\" />\n      <secret-storage>master_key</secret-storage>\n      <user-name>root</user-name>\n      <schema-mapping>\n        <introspection-scope>\n          <node kind=\"schema\" qname=\"@\" />\n        </introspection-scope>\n      </schema-mapping>\n    </data-source>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	
++++ b/.idea/dataSources.local.xml	
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="dataSourceStorageLocal" created-in="IU-241.15989.150">
++  <component name="dataSourceStorageLocal" created-in="IU-233.14475.28">
+     <data-source name="MenaxhimiKredise@localhost" uuid="f583b88b-15c2-4f50-bac2-686af4977455">
+       <database-info product="MySQL" version="8.1.0" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.1.0" exact-driver-version="8.2">
+         <extra-name-characters>#@</extra-name-characters>

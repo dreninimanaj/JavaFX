@@ -7,38 +7,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0"
-      prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css"
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
-      <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <FontAwesomeIconView glyphName="DOLLAR" size="30"/>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit"/>
+      <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <FontAwesomeIconView glyphName="DOLLAR" size="30" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit" />
       </VBox>
-      <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container"
-            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create Client">
             <graphic>
-               <FontAwesomeIconView glyphName="PLUS" size="20"/>
+               <FontAwesomeIconView glyphName="PLUS" size="20" />
             </graphic>
          </Button>
          <Button fx:id="clients_btn" mnemonicParsing="false" text="Clients">
             <graphic>
-               <FontAwesomeIconView glyphName="LIST" size="20"/>
+               <FontAwesomeIconView glyphName="LIST" size="20" />
             </graphic>
          </Button>
          <Button fx:id="requests_btn" mnemonicParsing="false" text="   Requests">
             <graphic>
-               <FontAwesomeIconView glyphName="EXCLAMATION" size="20"/>
+               <FontAwesomeIconView glyphName="EXCLAMATION" size="20" />
             </graphic>
             <VBox.margin>
-               <Insets/>
+               <Insets />
             </VBox.margin>
          </Button>
          <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_button" text="Logout">
             <graphic>
-               <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20"/>
+               <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
             </graphic>
          </Button>
       </VBox>

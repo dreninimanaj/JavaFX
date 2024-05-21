@@ -30,7 +30,7 @@ public class ClientMenuController implements Initializable {
 
     @FXML
     private void handleApply(ActionEvent ae) {
-        Navigator.navigate(ae, Navigator.ADD_LOAN_PAGE);
+        Navigator.navigate(ae, Navigator.CALCULATOR_PAGE);
     }
 
     public void handleProfile(ActionEvent actionEvent) {
