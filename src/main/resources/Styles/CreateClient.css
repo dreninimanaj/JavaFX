@@ -19,7 +19,7 @@
     -fx-pref-width: 250;
     -Fx-pref-height: 35;
     -fx-background-color: #FFFFFFF;
-    -fx-font size: 1.3em;
+    -fx-font-size: 1.3em;
     -fx-effect: dropshadow(three-pass-box,#AAAAAA, 3, 0, 0, 3);
 }
 
