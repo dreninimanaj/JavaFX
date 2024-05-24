@@ -68,16 +68,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        login_btn.setOnAction(event -> {
-//            ClientController clientController = new ClientController();
-//            Navigator.navigate(event, Navigator.HOME_PAGE, clientController);
-//        });
         this.passwordi_perdoruesit.setText(resourceBundle.getString("lblPassword"));
         this.adresa_perdoruesit.setText(resourceBundle.getString("lblUsername"));
-        //Locale locale = Locale.getDefault();
-        //ResourceBundle bundle = ResourceBundle.getBundle("Translations.content", locale);
-
-
     }
 
     @FXML
