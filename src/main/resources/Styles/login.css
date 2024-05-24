@@ -7,7 +7,7 @@
 }
 
 .account_selector .arrow {
-    -fx-background-color: #132A13;
+    -fx-background-color: #123A13;
 }
 
 #choice-box-popup-menu {
@@ -40,5 +40,5 @@
 }
 
 .Button{
-    -fx-background-color: #132A13;
+    -fx-background-color: #123A13;
 }
