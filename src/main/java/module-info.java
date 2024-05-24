@@ -22,4 +22,5 @@ module com.example.knk_gr23 {
     opens com.example.knk_gr23.Controllers.Client to javafx.fxml;
     opens com.example.knk_gr23.Controllers.Admin to javafx.fxml;
     opens com.example.knk_gr23.Controllers to javafx.fxml;
+    opens com.example.knk_gr23.Models.dto to javafx.base;
 }

@@ -26,6 +26,7 @@ public class Navigator {
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
+        stage.setResizable(false);
         navigate(stage, form);
     }
 
@@ -41,6 +42,7 @@ public class Navigator {
         Pane formPane = loadPane(form);
         Scene newScene = new Scene(formPane);
         stage.setScene(newScene);
+        stage.setResizable(false);
         stage.show();
     }
 

@@ -1,5 +1,8 @@
 package com.example.knk_gr23.Controllers.Admin;
 
+import com.example.knk_gr23.App.Navigator;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
@@ -16,4 +19,10 @@ public class AdminMenuControllers implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    @FXML
+    public void handleCreateClient(ActionEvent ae) {
+        Navigator.navigate(ae, Navigator.LOGIN_PAGE);
+    }
+
 }

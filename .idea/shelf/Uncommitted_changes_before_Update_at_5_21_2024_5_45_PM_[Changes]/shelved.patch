@@ -1,0 +1,147 @@
+Index: src/main/java/com/example/knk_gr23/Services/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Services;\r\n\r\n\r\nimport com.example.knk_gr23.Models.User;\r\nimport com.example.knk_gr23.Models.dto.LoginUserDto;\r\nimport com.example.knk_gr23.Reposirtory.UserRepository;\r\n\r\n\r\nimport java.util.List;\r\n\r\npublic class UserService {\r\n//    public static boolean signUp(UserDto userData){\r\n//        String password = userData.getPassword();\r\n//        String confirmPassword = userData.getConfirmPassword();\r\n//\r\n//        if(!password.equals(confirmPassword)){\r\n//            return false;\r\n//        }\r\n//\r\n//        String salt = PasswordHasher.generateSalt();\r\n//        String passwordHash = PasswordHasher.generateSaltedHash(\r\n//                password, salt\r\n//        );\r\n//\r\n//        CreateUserDto createUserData = new CreateUserDto(\r\n//                userData.getUsername(),\r\n//                userData.getLastName(),\r\n//                userData.getEmail(),\r\n//                salt,\r\n//                passwordHash\r\n//        );\r\n//\r\n//        return UserRepository.create(createUserData);\r\n//    }\r\n\r\n//    public static boolean login(LoginUserDto  loginData){\r\n//        User user = UserRepository.getByEmail(loginData.getUsername());\r\n//        if(user == null){\r\n//            return false;\r\n//        }\r\n//\r\n//        String password = loginData.getPassword();\r\n//        String salt = user.getSalt();\r\n//        String passwordHash = user.getPasswordHash();\r\n//\r\n//        return PasswordHasher.compareSaltedHash(\r\n//                password, salt, passwordHash\r\n//        );\r\n//    }\r\npublic static User login(LoginUserDto loginData) {\r\n    // Log the login attempt with the provided username\r\n    System.out.println(\"Attempting to log in with username: \" + loginData.getUsername());\r\n\r\n    // Retrieve the user from the repository\r\n    User user = UserRepository.getByUsername(loginData.getUsername());\r\n\r\n    // Check if the user was found\r\n    if (user == null) {\r\n        System.out.println(\"User not found for username: \" + loginData.getUsername());\r\n\r\n        // Print all usernames from the database for debugging\r\n        System.out.println(\"Listing all usernames in the database:\");\r\n        List<String> usernames = UserRepository.getAllUsernames();\r\n        for (String username : usernames) {\r\n            System.out.println(username);\r\n        }\r\n\r\n        return null;\r\n    }\r\n\r\n    // Retrieve and log the entered password\r\n    String enteredPassword = loginData.getPassword();\r\n    System.out.println(\"Entered password: \" + enteredPassword);\r\n\r\n    // Retrieve and log the stored password\r\n    String storedPassword = user.getPasswordHash();\r\n    System.out.println(\"Stored password: \" + storedPassword);\r\n\r\n    // Compare the passwords and log the comparison result\r\n    boolean isPasswordMatch = PasswordHasher.comparePassword(enteredPassword, storedPassword);\r\n    System.out.println(\"Password match result: \" + isPasswordMatch);\r\n\r\n    return user;\r\n}\r\n//    User user = UserRepository.getByUsername(loginData.getUsername());\r\n//    if(user == null){\r\n//        return false;\r\n//    }\r\n//\r\n////    if(user.getRole().equals(\"admin\")){\r\n////\r\n////    }\r\n//    String password = loginData.getPassword();\r\n////            if(password.equals(\"admin\")){\r\n////                return true;\r\n////            }\r\n////            return false;\r\n//    String password = user.getPassword();\r\n//    return PasswordHasher.comaparePassword(\r\n//            password,  password\r\n//    );\r\n////    String password = loginData.getPassword();\r\n////    String salt = user.getSalt();\r\n////    String passwordHash = user.getPasswordHash();\r\n//\r\n////    return PasswordHasher.compareSaltedHash(\r\n////            password, salt, passwordHash\r\n////    );\r\n}\r\n\r\n//    public static List<User> filter(UserFilter filter){\r\n//        return UserRepository.getByFilter(filter);\r\n//    }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Services/UserService.java b/src/main/java/com/example/knk_gr23/Services/UserService.java
+--- a/src/main/java/com/example/knk_gr23/Services/UserService.java	(revision 6bf4aab5dcd7f481e1180e7f6cb31ca72d5d4bcf)
++++ b/src/main/java/com/example/knk_gr23/Services/UserService.java	(date 1716288788726)
+@@ -78,7 +78,10 @@
+ 
+     // Compare the passwords and log the comparison result
+     boolean isPasswordMatch = PasswordHasher.comparePassword(enteredPassword, storedPassword);
+-    System.out.println("Password match result: " + isPasswordMatch);
++//    System.out.println("Password match result: " + isPasswordMatch);
++    if(!isPasswordMatch){
++        return null;
++    }
+ 
+     return user;
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"b1\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/CreditBoxController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/User.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/AddLoan.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/CreditBox.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/TableLoans.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_10_15_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_10_15_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_8_12_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_8_12_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/Model.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/Model.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/DBConnector.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientH.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;dreninimanaj&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/DiellzaJ/KNK_Gr23.git&quot;,\r\n    &quot;accountId&quot;: &quot;b16fd151-d8c9-4785-a795-27e3016b4394&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fsNFHZLn9OGeSg8UQpDH1Iaclh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Main.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Admin/Desktop/wetransfer_gitignore_2024-05-16_1633 (1)\",\r\n    \"list.type.of.created.stylesheet\": \"CSS\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"mysql\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"\" />\r\n      <created>1714585722488</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714585722488</updated>\r\n      <workItem from=\"1714585723910\" duration=\"10000\" />\r\n      <workItem from=\"1715438616980\" duration=\"109000\" />\r\n      <workItem from=\"1715438746358\" duration=\"3811000\" />\r\n      <workItem from=\"1715449632427\" duration=\"9349000\" />\r\n      <workItem from=\"1715503128877\" duration=\"2492000\" />\r\n      <workItem from=\"1715507130172\" duration=\"3612000\" />\r\n      <workItem from=\"1715517007531\" duration=\"6400000\" />\r\n      <workItem from=\"1715588838820\" duration=\"7440000\" />\r\n      <workItem from=\"1715608436396\" duration=\"1936000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"begin\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714675946834</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714675946834</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"b\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715467718220</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715467718220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"b1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715510728827</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715510728827</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"start\" />\r\n    <MESSAGE value=\"begin\" />\r\n    <MESSAGE value=\"b\" />\r\n    <MESSAGE value=\"b1\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"b1\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6bf4aab5dcd7f481e1180e7f6cb31ca72d5d4bcf)
++++ b/.idea/workspace.xml	(date 1716289545624)
+@@ -4,29 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="b1">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/CreditBoxController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/User.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/AddLoan.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/CreditBox.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/TableLoans.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_10_15_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_10_15_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_8_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_14_2024_8_12_PM__Changes_.xml" afterDir="false" />
++    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="logini me databaze dhe qasja sipas rolit">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/Model.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/DBConnector.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientH.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -72,32 +52,32 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.Main.executor": "Run",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "master",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/Admin/Desktop/wetransfer_gitignore_2024-05-16_1633 (1)",
+-    "list.type.of.created.stylesheet": "CSS",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Libraries",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/wetransfer_gitignore_2024-05-16_1633 (1)&quot;,
++    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   },
+-  "keyToStringList": {
+-    "DatabaseDriversLRU": [
+-      "mysql"
++  &quot;keyToStringList&quot;: {
++    &quot;DatabaseDriversLRU&quot;: [
++      &quot;mysql&quot;
+     ]
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+       <recent name="" />
+@@ -153,7 +133,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1715510728827</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="logini me databaze dhe qasja sipas rolit">
++      <option name="closed" value="true" />
++      <created>1716220185193</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1716220185193</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -164,6 +152,7 @@
+     <MESSAGE value="begin" />
+     <MESSAGE value="b" />
+     <MESSAGE value="b1" />
+-    <option name="LAST_COMMIT_MESSAGE" value="b1" />
++    <MESSAGE value="logini me databaze dhe qasja sipas rolit" />
++    <option name="LAST_COMMIT_MESSAGE" value="logini me databaze dhe qasja sipas rolit" />
+   </component>
+ </project>
+\ No newline at end of file

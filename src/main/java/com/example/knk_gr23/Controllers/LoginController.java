@@ -1,6 +1,7 @@
 package com.example.knk_gr23.Controllers;
 
 import com.example.knk_gr23.App.Navigator;
+import com.example.knk_gr23.App.SessionMenager;
 import com.example.knk_gr23.Controllers.Client.ClientController;
 import com.example.knk_gr23.Models.User;
 import com.example.knk_gr23.Models.dto.LoginUserDto;
@@ -9,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 
 
 import java.net.URL;
@@ -41,7 +43,10 @@ public class LoginController implements Initializable {
         if (user == null) {
             this.error_lbl.setText("Login failed");
         } else {
+            SessionMenager.setUser(user);
             String role = user.getRole();
+//            lblUsername.setText("hi!" + SessionMenager.getUser().getUsername());
+
             if (role == null) {
                 this.error_lbl.setText("User role is undefined.");
             } else if (role.equals("admin")) {
