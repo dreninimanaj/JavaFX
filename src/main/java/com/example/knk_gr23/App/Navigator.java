@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+
 public class Navigator {
     public final static String LOGIN_PAGE = "/Fxml/Login.fxml";
     public final static String HOME_PAGE = "/Fxml/Client/ClientH.fxml";

@@ -21,7 +21,9 @@ public class ClientMenuController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.apply_btn.setText(resourceBundle.getString("lblApply"));
+    }
 
     @FXML
     public void handleLogout(ActionEvent ae) {

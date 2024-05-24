@@ -13,4 +13,8 @@ public class SessionMenager
     public static void setUser(User user) {
         SessionMenager.user = user;
     }
+
+    public static void clearUser() {
+        SessionMenager.user = null;
+    }
 }

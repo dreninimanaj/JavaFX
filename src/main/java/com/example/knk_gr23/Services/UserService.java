@@ -78,7 +78,7 @@ public static User login(LoginUserDto loginData) {
 
     // Compare the passwords and log the comparison result
     boolean isPasswordMatch = PasswordHasher.comparePassword(enteredPassword, storedPassword);
-//    System.out.println("Password match result: " + isPasswordMatch);
+    System.out.println("Password match result: " + isPasswordMatch);
     if(!isPasswordMatch){
         return null;
     }

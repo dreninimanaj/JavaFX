@@ -31,6 +31,8 @@ public class LoginController implements Initializable {
     private Label error_lbl;
     @FXML
     private TextField textfield_perdoruesit;
+    @FXML
+    private Label passwordi_perdoruesit;
 
     @FXML
     private void handleLogin(ActionEvent ae) {
@@ -43,17 +45,22 @@ public class LoginController implements Initializable {
         if (user == null) {
             this.error_lbl.setText("Login failed");
         } else {
+            System.out.println("test");
             SessionMenager.setUser(user);
             String role = user.getRole();
+            System.out.println("role: " + role);
 //            lblUsername.setText("hi!" + SessionMenager.getUser().getUsername());
 
             if (role == null) {
                 this.error_lbl.setText("User role is undefined.");
             } else if (role.equals("admin")) {
+                System.out.println("admin");
                 Navigator.navigate(ae, Navigator.ADMIN_PAGE);
             } else {
+                System.out.println("client");
                 Navigator.navigate(ae, Navigator.HOME_PAGE);
             }
+            System.out.println("shini");
         }
     }
 
@@ -65,8 +72,10 @@ public class LoginController implements Initializable {
 //            ClientController clientController = new ClientController();
 //            Navigator.navigate(event, Navigator.HOME_PAGE, clientController);
 //        });
-        Locale locale = Locale.getDefault();
-        ResourceBundle bundle = ResourceBundle.getBundle("Translations.content", locale);
+        this.passwordi_perdoruesit.setText(resourceBundle.getString("lblPassword"));
+        this.adresa_perdoruesit.setText(resourceBundle.getString("lblUsername"));
+        //Locale locale = Locale.getDefault();
+        //ResourceBundle bundle = ResourceBundle.getBundle("Translations.content", locale);
 
 
     }

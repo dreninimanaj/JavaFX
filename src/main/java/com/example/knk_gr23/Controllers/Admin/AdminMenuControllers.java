@@ -21,7 +21,7 @@ public class AdminMenuControllers implements Initializable {
     }
 
     @FXML
-    public void handleCreateClient(ActionEvent ae) {
+    public void handleLogOut(ActionEvent ae) {
         Navigator.navigate(ae, Navigator.LOGIN_PAGE);
     }
 
