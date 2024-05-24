@@ -4,18 +4,21 @@ import com.example.knk_gr23.App.Navigator;
 import com.example.knk_gr23.Models.Loan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoanComponentController {
+public class LoanComponentController implements Initializable {
     
     @FXML
     private Label loanIdLabel;
+
     @FXML
     private Label loanAmountLabel;
+
     @FXML
     private Label loanStatusLabel;
 

@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,20 +15,26 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoanCalculatorController {
+public class LoanCalculatorController implements Initializable {
 
     @FXML
     private Label loanCalculator;
+
     @FXML
-    private Label enter_Amount;
+    private Label enter_amount;
+
     @FXML
     private Label interest_rate;
+
     @FXML
     private Label duration;
+
     @FXML
     private Label monthly_payment;
+
     @FXML
     private Label interest_paid;
+
     @FXML
     private Label total_paid;
 
@@ -52,6 +59,7 @@ public class LoanCalculatorController {
     @FXML
     private TextField txtDuration;
 
+
     @FXML
     private TextField txtInterestRate;
 
@@ -61,10 +69,7 @@ public class LoanCalculatorController {
     @FXML
     private TableView<PaymentDto> table;
 
-    @FXML
-    public void initialize() {
-        initializeTableColumns();
-    }
+
 
     @FXML
     private void handleExit(ActionEvent ae) {
@@ -144,7 +149,7 @@ public class LoanCalculatorController {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.loanCalculator.setText(resourceBundle.getString("lblLoanCalculator"));
-        this.enter_Amount.setText(resourceBundle.getString("lblEnterAmount"));
+        this.enter_amount.setText(resourceBundle.getString("lblEnterAmount"));
         this.interest_rate.setText(resourceBundle.getString("lblInterestRate"));
         this.duration.setText(resourceBundle.getString("lblDuration"));
         this.monthly_payment.setText(resourceBundle.getString("lblMonthlyPayment"));

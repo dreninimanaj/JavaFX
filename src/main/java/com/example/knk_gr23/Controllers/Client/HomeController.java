@@ -26,21 +26,24 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 
-public class HomeController {
+public class HomeController implements Initializable {
     @FXML
     private ListView<AnchorPane> loans_listView;
 //    @FXML
 //    public ListView loans_listview;
 
     @FXML
-    public Button add_loan_button;
+    private Button add_loan_button;
+
     @FXML
-    public Text lblusername;
+    private Text lblusername;
+
     @FXML
-    public Text accounts_summary;
+    private Text accounts_summary;
 
     @FXML
     private VBox loansListView;
+
 
     @FXML
     public void handleApply(ActionEvent ae) {
@@ -81,7 +84,9 @@ public class HomeController {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.lblusername.setText(resourceBundle.getString("lblHi"));
+       // this.lblusername.setText(resourceBundle.getString("lblHi"));
         this.accounts_summary.setText(resourceBundle.getString("lblAccountsSummary"));
+        this.add_loan_button.setText(resourceBundle.getString("lblButton"));
+        this.lblusername.setText(resourceBundle.getString("lblHi"));
     }
 }

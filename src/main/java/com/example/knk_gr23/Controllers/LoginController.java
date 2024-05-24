@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
-
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -25,8 +24,6 @@ public class LoginController implements Initializable {
     private Button login_btn;
     @FXML
     private PasswordField password_hapsira;
-    @FXML
-    private ChoiceBox acc_selector;
     @FXML
     private Label error_lbl;
     @FXML

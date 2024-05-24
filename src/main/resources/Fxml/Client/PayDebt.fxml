@@ -22,9 +22,9 @@
       </VBox>
       <VBox layoutX="209.0" layoutY="49.0" prefHeight="350.0" prefWidth="359.0" AnchorPane.rightAnchor="49.799999999999955" AnchorPane.topAnchor="49.0">
          <children>
-            <Label fx:id="creditCard" text="\%lblCredit Card" />
+            <Label fx:id="creditCard" text="\%lblCreditCard" />
             <TextField />
-            <Label fx:id="type_pin" text="\%lblType your pin" />
+            <Label fx:id="type_pin" text="\%lblTypeyourpin" />
             <PasswordField />
             <Button fx:id="button_confirm" mnemonicParsing="false" text="\%lblConfirm" />
             <Button fx:id="button_exit" mnemonicParsing="false" text="\%lblExit" />

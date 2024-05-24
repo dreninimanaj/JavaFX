@@ -26,7 +26,7 @@ public class PayDebtController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.creditCard.setText(resourceBundle.getString("lblCrediCard"));
-        this.type_pin.setText(resourceBundle.getString("lblTypeYourPin"));
+        this.type_pin.setText(resourceBundle.getString("lblTypeyourpin"));
         this.button_confirm.setText(resourceBundle.getString("lblConfirm"));
         this.payDebt.setText(resourceBundle.getString("lblPayDebt"));
         this.button_exit.setText(resourceBundle.getString("lblExit"));

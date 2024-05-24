@@ -39,12 +39,12 @@ public class ClientMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.home_btn.setText(resourceBundle.getString("lblHome"));
         this.apply_btn.setText(resourceBundle.getString("lblApply"));
-        this.profile_btn.setText(resourceBundle.getString("lblProfile"));
+        this.profile_btn.setText(resourceBundle.getString("lblprofile"));
         this.add_btn.setText(resourceBundle.getString("lblAdd"));
         this.safe_Credits.setText(resourceBundle.getString("lblSafeCredits"));
-        this.apply_loan.setText(resourceBundle.getString("lblApplyForALoan"));
-        this.write_data.setText(resourceBundle.getString("lblApplyForALoan"));
-        this.logout_btn.setText(resourceBundle.getString("lblLogout"));
+        this.apply_loan.setText(resourceBundle.getString("lblApplyforaloan"));
+        this.write_data.setText(resourceBundle.getString("lblWriteyourdatahereandapply"));
+        this.logout_btn.setText(resourceBundle.getString("lbllogout"));
 
     }
 

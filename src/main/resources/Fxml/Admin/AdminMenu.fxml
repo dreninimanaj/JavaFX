@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.AdminMenuControllers">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.AdminMenuControllers">
    <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <FontAwesomeIconView glyphName="DOLLAR" size="30" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit" />
+         <Text fx:id="secure_credit" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblSecureCredit" />
       </VBox>
       <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create Client">
+         <Button fx:id="create_client_btn" mnemonicParsing="false" text="\%lblCreateClient">
             <graphic>
                <FontAwesomeIconView glyphName="PLUS" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="clients_btn" mnemonicParsing="false" text="Clients">
+         <Button fx:id="clients_btn" mnemonicParsing="false" text="\%lblClients">
             <graphic>
                <FontAwesomeIconView glyphName="LIST" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="requests_btn" mnemonicParsing="false" text="   Requests">
+         <Button fx:id="requests_btn" mnemonicParsing="false" text="   %lblRequests">
             <graphic>
                <FontAwesomeIconView glyphName="EXCLAMATION" size="20" />
             </graphic>
@@ -31,7 +32,7 @@
                <Insets />
             </VBox.margin>
          </Button>
-         <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#handleLogOut" styleClass="alt_menu_button" text="Logout">
+         <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#handleLogOut" styleClass="alt_menu_button" text="\%lblLogout">
             <graphic>
                <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
             </graphic>

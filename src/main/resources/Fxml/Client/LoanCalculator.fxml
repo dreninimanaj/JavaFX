@@ -15,17 +15,17 @@
          <children>
             <Pane layoutX="18.0" layoutY="80.0" prefHeight="297.0" prefWidth="364.0">
                <children>
-                  <Label fx:id="enter_amount" layoutX="25.0" layoutY="30.0" text="\%lblEnter Amount" />
-                  <Label fx:id="interest_rate" layoutX="25.0" layoutY="60.0" text="\%lblInterest Rate" />
+                  <Label fx:id="enter_amount" layoutX="25.0" layoutY="30.0" text="\%lblEnterAmount" />
+                  <Label fx:id="interest_rate" layoutX="25.0" layoutY="60.0" text="\%lblInterestRate" />
                   <Label fx:id="duration" layoutX="25.0" layoutY="90.0" text="\%lblDuration" />
                   <TextField id="txtDuration" fx:id="txtDuration" layoutX="115.0" layoutY="89.0" style="-fx-background-color: transparent; -fx-border-color: #132A13; -fx-border-width: 0px 0px 2px 0px;" />
                   <TextField id="txtInterestRate" fx:id="txtInterestRate" layoutX="115.0" layoutY="56.0" style="-fx-background-color: transparent; -fx-border-color: #132A13; -fx-border-width: 0px 0px 2px 0px;" />
                   <TextField id="txtAmount" fx:id="txtAmount" layoutX="115.0" layoutY="25.0" style="-fx-background-color: transparent; -fx-border-color: #132A13; -fx-border-width: 0px 0px 2px 0px;" />
                   <Button id="btnCalculate" fx:id="btnCalculate" layoutX="67.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleCalculate" style="-fx-background-color: #132A13;" text="\%lblCalculate" textFill="#f8f5f5" />
                   <Button id="btnExit" fx:id="btnExit" layoutX="188.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleExit" style="-fx-background-color: #132A13;" text="\%lblExit" textFill="#fcfcfc" />
-                  <Label fx:id="monthly_payment" layoutX="25.0" layoutY="184.0" text="\%lblMonthly Payment" />
-                  <Label fx:id="interest_paid" layoutX="25.0" layoutY="214.0" text="\%lblInterest Paid" />
-                  <Label fx:id="total_paid" layoutX="25.0" layoutY="244.0" text="\%lblTotal Paid" />
+                  <Label fx:id="monthly_payment" layoutX="25.0" layoutY="184.0" text="\%lblMonthlyPayment" />
+                  <Label fx:id="interest_paid" layoutX="25.0" layoutY="214.0" text="\%lblInterestPaid" />
+                  <Label fx:id="total_paid" layoutX="25.0" layoutY="244.0" text="\%lblTotalPaid" />
                   <Label id="lblPayment" fx:id="lblPayment" layoutX="142.0" layoutY="184.0">
                      <font>
                         <Font size="18.0" />
@@ -40,7 +40,7 @@
                      </font></Label>
                </children>
             </Pane>
-            <Label fx:id="loanCalculator" layoutX="283.0" layoutY="26.0" text="\%lblLoan Calculator">
+            <Label fx:id="loanCalculator" layoutX="283.0" layoutY="26.0" text="\%lblLoanCalculator">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
