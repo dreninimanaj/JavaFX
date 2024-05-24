@@ -11,7 +11,25 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class LoanCalculatorController {
+
+    @FXML
+    private Label loanCalculator;
+    @FXML
+    private Label enter_Amount;
+    @FXML
+    private Label interest_rate;
+    @FXML
+    private Label duration;
+    @FXML
+    private Label monthly_payment;
+    @FXML
+    private Label interest_paid;
+    @FXML
+    private Label total_paid;
 
     @FXML
     private Label lblInterest;
@@ -122,5 +140,17 @@ public class LoanCalculatorController {
         alert.setContentText(message);
         alert.setTitle("ERROR message");
         alert.show();
+    }
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.loanCalculator.setText(resourceBundle.getString("lblLoanCalculator"));
+        this.enter_Amount.setText(resourceBundle.getString("lblEnterAmount"));
+        this.interest_rate.setText(resourceBundle.getString("lblInterestRate"));
+        this.duration.setText(resourceBundle.getString("lblDuration"));
+        this.monthly_payment.setText(resourceBundle.getString("lblMonthlyPayment"));
+        this.interest_paid.setText(resourceBundle.getString("lblInterestPaid"));
+        this.total_paid.setText(resourceBundle.getString("lblTotalPaid"));
+        this.btnCalculate.setText(resourceBundle.getString("lblCalculate"));
+        this.btnExit.setText(resourceBundle.getString("lblExit"));
     }
 }

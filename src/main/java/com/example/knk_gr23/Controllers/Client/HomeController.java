@@ -34,6 +34,10 @@ public class HomeController {
 
     @FXML
     public Button add_loan_button;
+    @FXML
+    public Text lblusername;
+    @FXML
+    public Text accounts_summary;
 
     @FXML
     private VBox loansListView;
@@ -42,8 +46,7 @@ public class HomeController {
     public void handleApply(ActionEvent ae) {
         Navigator.navigate(ae, Navigator.PAY_PAGE);
     }
-    @FXML
-    private Text lblusername;
+
 
 
     @FXML
@@ -75,5 +78,10 @@ public class HomeController {
             }
             loansListView.setPrefHeight(totalHeight);
         }
+    }
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.lblusername.setText(resourceBundle.getString("lblHi"));
+        this.accounts_summary.setText(resourceBundle.getString("lblAccountsSummary"));
     }
 }

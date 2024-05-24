@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="behet shfaqja e kredive tek dashbordi i klientit">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_5_24__11_30__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_5_24__11_30__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_5_24__21_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_5_24__21_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_5_24__12_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_5_24__12_42__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_5_24__13_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_5_24__13_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_15_2024_8_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_15_2024_8_04_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_12_20_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_12_20_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_45_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_21_2024_5_45_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/SessionMenager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/SessionMenager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/PayDebtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/PayDebtController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanCalculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanCalculator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Translations/content_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translations/content_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Translations/content_sq.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translations/content_sq.properties" afterDir="false" />
     </list>
@@ -40,6 +50,7 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {

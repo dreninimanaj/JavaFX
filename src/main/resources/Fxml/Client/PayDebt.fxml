@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="425.0" prefWidth="618.0" styleClass="paydebt_container" stylesheets="@../../Styles/PayDebt.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.PayDebtController">
    <children>
       <VBox prefHeight="425.0" prefWidth="168.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PayDebt" />
+            <Text fx:id="payDebt" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPayDebt" />
          </children>
          <styleClass>
             <String fx:value="paydebt_container" />
@@ -23,11 +22,12 @@
       </VBox>
       <VBox layoutX="209.0" layoutY="49.0" prefHeight="350.0" prefWidth="359.0" AnchorPane.rightAnchor="49.799999999999955" AnchorPane.topAnchor="49.0">
          <children>
-            <Label text="Credit Card" />
+            <Label fx:id="creditCard" text="\%lblCredit Card" />
             <TextField />
-            <Label text="Type your pin" />
+            <Label fx:id="type_pin" text="\%lblType your pin" />
             <PasswordField />
-            <Button mnemonicParsing="false" text="Confirm" />
+            <Button fx:id="button_confirm" mnemonicParsing="false" text="\%lblConfirm" />
+            <Button fx:id="button_exit" mnemonicParsing="false" text="\%lblExit" />
          </children>
          <styleClass>
             <String fx:value="paydebt_form_container" />

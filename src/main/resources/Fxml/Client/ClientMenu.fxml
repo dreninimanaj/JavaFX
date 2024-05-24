@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.ClientMenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.ClientMenuController">
    <AnchorPane prefHeight="720.0" prefWidth="160.0" styleClass="left_container">
       <VBox prefHeight="120.0" prefWidth="130.0" styleClass="menu_down" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apply for a loan" />
-         <Label text="Write your data here and apply!" />
-         <Button fx:id="apply_btn1" mnemonicParsing="false" onAction="#handleApply" text="Add">
+         <Text fx:id="apply_loan" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblApply for a loan" />
+         <Label fx:id="write_data" text="\%lblWrite your data here and apply!" />
+         <Button fx:id="add_btn" mnemonicParsing="false" onAction="#handleApply" text="\%lblAdd">
             <graphic>
                <FontAwesomeIconView glyphName="PLUS" />
             </graphic>
@@ -19,26 +21,26 @@
       </VBox>
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <FontAwesomeIconView glyphName="DOLLAR" size="30.0" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SafeCredits" />
+         <Text fx:id="safe_Credits" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblSafeCredits" />
       </VBox>
       <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <Button fx:id="home_btn" mnemonicParsing="false" onAction="#handleHome" text="Home">
+         <Button fx:id="home_btn" mnemonicParsing="false" onAction="#handleHome" text="\%lblHome">
             <graphic>
                <FontAwesomeIconView glyphName="HOME" size="20.0" />
             </graphic>
          </Button>
-         <Button fx:id="apply_btn" mnemonicParsing="false" onAction="#handleApply" text="\%btnApply">
+         <Button fx:id="apply_btn" mnemonicParsing="false" onAction="#handleApply" text="\%lblApply">
             <graphic>
                <FontAwesomeIconView glyphName="HANDSHAKE_ALT" size="20.0" />
             </graphic>
          </Button>
          <Line endX="120.0" />
-         <Button fx:id="profile_btn" mnemonicParsing="false" onAction="#handleProfile" styleClass="alt_menu_button" text="profile">
+         <Button fx:id="profile_btn" mnemonicParsing="false" onAction="#handleProfile" styleClass="alt_menu_button" text="\%lblprofile">
             <graphic>
                <FontAwesomeIconView glyphName="USER" size="20.0" />
             </graphic>
          </Button>
-         <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#handleLogout" styleClass="alt_menu_button" text="logout">
+         <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#handleLogout" styleClass="alt_menu_button" text="\%lbllogout">
             <graphic>
                <FontAwesomeIconView glyphName="ARROW_RIGHT" />
             </graphic>

@@ -7,11 +7,11 @@
 
 <AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="box_container" stylesheets="@../../Styles/CreditBox.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.LoanComponentController">
    <children>
-      <Label fx:id="loanIdLabel" layoutX="10.0" layoutY="10.0" styleClass="credit_date_lbl" text="Loan ID" />
-      <Label fx:id="loanAmountLabel" layoutX="78.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="Loan Amount" />
+      <Label fx:id="loanIdLabel" layoutX="10.0" layoutY="10.0" styleClass="credit_date_lbl" text="\%lblLoan ID" />
+      <Label fx:id="loanAmountLabel" layoutX="78.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="\%lblLoan Amount" />
       <Line endX="400.0" endY="10.0" layoutX="50.0" layoutY="30.0" startX="0.0" startY="30.0" />
-      <Label fx:id="loanStatusLabel" layoutX="198.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="Loan Status" />
-      <Button fx:id="toTAble_btn" layoutX="294.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleTable" text="Table" AnchorPane.rightAnchor="140.8" />
-      <Button fx:id="pay_btn" layoutX="420.0" layoutY="10.0" mnemonicParsing="false" onAction="#handlePay" text="Pay loan" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="loanStatusLabel" layoutX="198.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="\%lblLoan Status" />
+      <Button fx:id="toTAble_btn" layoutX="294.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleTable" text="\%lblTable" AnchorPane.rightAnchor="140.8" />
+      <Button fx:id="pay_btn" layoutX="420.0" layoutY="10.0" mnemonicParsing="false" onAction="#handlePay" text="\%lblPay loan" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

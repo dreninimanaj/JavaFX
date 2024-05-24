@@ -33,7 +33,7 @@ public class DatabaseUtil {
 //    }
     private static final String URL = "jdbc:mysql://localhost:3306/MenaxhimiKredise";
     private static final String USER = "root";
-    private static final String PASSWORD = "dreni123";
+    private static final String PASSWORD = "220756100077";
 
     static {
         try {
