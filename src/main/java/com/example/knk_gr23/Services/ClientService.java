@@ -1,5 +1,6 @@
 package com.example.knk_gr23.Services;
 
+import com.example.knk_gr23.Models.Client;
 import com.example.knk_gr23.Models.Loan;
 import com.example.knk_gr23.Models.User;
 import com.example.knk_gr23.Reposirtory.ClientRepository;
@@ -20,5 +21,4 @@ public class ClientService {
         public static List<Client> getAllClients() throws SQLException {
             return ClientRepository.getAllClients();
         }
-    }
 }

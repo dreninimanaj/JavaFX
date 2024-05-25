@@ -1,5 +1,6 @@
 package com.example.knk_gr23.Controllers.Client;
 
+import com.example.knk_gr23.App.SessionMenager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
@@ -35,8 +36,6 @@ public class ClientProfileController implements Initializable {
         telefoni_lbl.setText(SessionMenager.getClient().getPhone());
         adresa_lbl.setText(SessionMenager.getClient().getAddress());
         punsimi_lbl.setText(SessionMenager.getClient().getEmploymentStatus());
-
-
 
     }
 

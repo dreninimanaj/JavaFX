@@ -18,6 +18,32 @@ import com.example.knk_gr23.Models.Client;
 
 public class ClientRepository {
 
+    public static boolean create(Client client) throws SQLException {
+        String query = """
+                INSERT INTO clients (name, address, phone, email, employment_status, income, credit_history, debt_to_income_ratio, users_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, client.getName());
+            pst.setString(2, client.getAddress());
+            pst.setString(3, client.getPhone());
+            pst.setString(4, client.getEmail());
+            pst.setString(5, client.getEmploymentStatus());
+            pst.setBigDecimal(6, client.getIncome());
+            pst.setString(7, client.getCreditHistory());
+            pst.setBigDecimal(8, client.getDebtToIncomeRatio());
+            pst.setInt(9, client.getUsersId());
+            pst.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println("Failed to create client: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     // Method to get all clients
     public static List<Client> getAllClients() {
         List<Client> clients = new ArrayList<>();
@@ -57,34 +83,34 @@ public class ClientRepository {
             return null;
         }
     }
-        public static Client getClientByUserId(int userId) throws SQLException {
-            String query = "SELECT * FROM clients WHERE users_id = ?";
-            try (Connection conn = DatabaseUtil.getConnection();
-                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-                pstmt.setInt(1, userId);
-                try (ResultSet rs = pstmt.executeQuery()) {
-                    if (rs.next()) {
-                        return getClientFromResultSet(rs);
-                    }
+
+    public static Client getClientByUserId(int userId) throws SQLException {
+        String query = "SELECT * FROM clients WHERE users_id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, userId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return getClientFromResultSet(rs);
                 }
             }
-            return null;
         }
+        return null;
+    }
 
-        private static Client getClientFromResultSet(ResultSet rs) throws SQLException {
-            int clientId = rs.getInt("client_id");
-            String name = rs.getString("name");
-            String address = rs.getString("address");
-            String phone = rs.getString("phone");
-            String email = rs.getString("email");
-            String employmentStatus = rs.getString("employment_status");
-            BigDecimal income = rs.getBigDecimal("income");
-            String creditHistory = rs.getString("credit_history");
-            BigDecimal debtToIncomeRatio = rs.getBigDecimal("debt_to_income_ratio");
-            int usersId = rs.getInt("users_id");
+    private static Client getClientFromResultSet(ResultSet rs) throws SQLException {
+        int clientId = rs.getInt("client_id");
+        String name = rs.getString("name");
+        String address = rs.getString("address");
+        String phone = rs.getString("phone");
+        String email = rs.getString("email");
+        String employmentStatus = rs.getString("employment_status");
+        BigDecimal income = rs.getBigDecimal("income");
+        String creditHistory = rs.getString("credit_history");
+        BigDecimal debtToIncomeRatio = rs.getBigDecimal("debt_to_income_ratio");
+        int usersId = rs.getInt("users_id");
 
-            return new Client(clientId, name, address, phone, email, employmentStatus, income, creditHistory, debtToIncomeRatio, usersId);
-        }
+        return new Client(clientId, name, address, phone, email, employmentStatus, income, creditHistory, debtToIncomeRatio, usersId);
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.knk_gr23.App;
 
+import com.example.knk_gr23.Models.Client;
 import com.example.knk_gr23.Models.User;
 
 public class SessionMenager
