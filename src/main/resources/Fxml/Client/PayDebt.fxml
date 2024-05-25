@@ -13,7 +13,7 @@
    <children>
       <VBox prefHeight="425.0" prefWidth="168.0">
          <children>
-            <Text fx:id="payDebt" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPayDebt" />
+            <Text fx:id="payDebt" strokeType="OUTSIDE" strokeWidth="0.0" text="PayDebt" />
          </children>
          <styleClass>
             <String fx:value="paydebt_container" />

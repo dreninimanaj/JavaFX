@@ -19,8 +19,6 @@ public class PayDebtController implements Initializable {
     @FXML
     private Button button_confirm;
     @FXML
-    private Text payDebt;
-    @FXML
     private Button button_exit;
 
     @Override
@@ -28,7 +26,6 @@ public class PayDebtController implements Initializable {
         this.creditCard.setText(resourceBundle.getString("lblCrediCard"));
         this.type_pin.setText(resourceBundle.getString("lblTypeyourpin"));
         this.button_confirm.setText(resourceBundle.getString("lblConfirm"));
-        this.payDebt.setText(resourceBundle.getString("lblPayDebt"));
         this.button_exit.setText(resourceBundle.getString("lblExit"));
     }
 }

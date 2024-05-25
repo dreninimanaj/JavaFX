@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="home_container" stylesheets="@../../Styles/home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.HomeController">
-   <Text fx:id="lblusername" layoutX="125.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblHi Dreni" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+   <Text fx:id="lblusername" layoutX="125.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi! Dreni" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
    <Text fx:id="accounts_summary" layoutX="310.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblAccountsSummary" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="90.0" />
    <Button fx:id="add_loan_button" layoutX="735.0" layoutY="681.0" mnemonicParsing="false" onAction="#handleApply" text="\%lblButton" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0" />
    <ScrollPane layoutX="10.0" layoutY="126.0" prefHeight="552.0" prefWidth="850.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
