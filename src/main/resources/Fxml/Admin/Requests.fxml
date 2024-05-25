@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml">
+    <!--            fx:controller="com.example.knk_gr23.Controllers.Client.ClientController"-->
+    <!--            prefHeight="400.0" prefWidth="600.0">-->
+    <left>
+        <fx:include source="AdminMenu.fxml"/>
+    </left>
+    <center>
+        <fx:include source="Admin.fxml"/>
+    </center>
+
+</BorderPane>

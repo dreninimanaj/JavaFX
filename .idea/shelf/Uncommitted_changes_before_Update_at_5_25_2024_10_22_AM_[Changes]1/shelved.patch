@@ -1,0 +1,99 @@
+Index: src/main/resources/Fxml/Admin/Clients.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.ListView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<AnchorPane prefHeight=\"750.0\" prefWidth=\"850.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.example.knk_gr23.Controllers.Admin.ClientsController\">\r\n    <Text layoutX=\"14.0\" layoutY=\"27.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Clients\" AnchorPane.leftAnchor=\"14.0\" AnchorPane.topAnchor=\"14.0\" />\r\n    <ListView fx:id=\"clients_listview\" layoutX=\"14.0\" layoutY=\"60.0\" prefHeight=\"650.0\" prefWidth=\"800.0\" styleClass=\"clients_container\" stylesheets=\"@../../Styles/Clients.css\" AnchorPane.leftAnchor=\"14.0\" AnchorPane.topAnchor=\"50.0\" />\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Fxml/Admin/Clients.fxml b/src/main/resources/Fxml/Admin/Clients.fxml
+--- a/src/main/resources/Fxml/Admin/Clients.fxml	
++++ b/src/main/resources/Fxml/Admin/Clients.fxml	
+@@ -1,10 +1,17 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import javafx.scene.control.ListView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.text.Text?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.layout.*?>
++<?import javafx.scene.text.*?>
+ 
+-<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.ClientsController">
+-    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+-    <ListView fx:id="clients_listview" layoutX="14.0" layoutY="60.0" prefHeight="650.0" prefWidth="800.0" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0" />
++<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.ClientsController">
++    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
++      <font>
++         <Font name="Calibri" size="20.0" />
++      </font></Text>
++   <ScrollPane layoutX="14.0" layoutY="53.0" prefHeight="663.0" prefWidth="809.0">
++      <content>
++         <VBox fx:id="clientsListView" prefHeight="659.0" prefWidth="803.0" />
++      </content>
++   </ScrollPane>
+ </AnchorPane>
+Index: src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Admin;\r\n\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.ListView;\r\n\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class ClientsController implements Initializable {\r\n    public ListView clients_listview;\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java b/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java	
++++ b/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java	
+@@ -1,16 +1,52 @@
+ package com.example.knk_gr23.Controllers.Admin;
+ 
++import com.example.knk_gr23.Models.User;
++import com.example.knk_gr23.Services.ClientService;
++import javafx.fxml.FXML;
++import javafx.fxml.FXMLLoader;
+ import javafx.fxml.Initializable;
+-import javafx.scene.control.ListView;
++import javafx.scene.layout.Pane;
++import javafx.scene.layout.VBox;
+ 
++import java.io.IOException;
+ import java.net.URL;
++import java.sql.SQLException;
++import java.util.List;
+ import java.util.ResourceBundle;
+ 
+ public class ClientsController implements Initializable {
+-    public ListView clients_listview;
++
++    @FXML
++    private VBox clientsListView;
+ 
+     @Override
+     public void initialize(URL url, ResourceBundle resourceBundle) {
++        try {
++            displayClients(ClientService.getAllClients());
++        } catch (SQLException e) {
++            throw new RuntimeException(e);
++        }
++    }
++
++    private void displayClients(List<User> clientsList){
++        double totalHeight=300;
++        clientsListView.getChildren().clear();
++        for (User user : clientsList) {
++            System.out.println(user.getId());
++            try {
++                System.out.println(user.getId());
++                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientsComponent.fxml"));
++                Pane busPane = loader.load();
++                ClientsComponentController clientsComponentController = loader.getController();
++                clientsComponentController.setData(user);
++                clientsListView.getChildren().add(busPane);
+ 
++                totalHeight += busPane.getPrefHeight() + clientsListView.getSpacing();
++
++            } catch (IOException e) {
++                System.out.println("eroor");
++            }
++            clientsListView.setPrefHeight(totalHeight);
++        }
+     }
+ }
