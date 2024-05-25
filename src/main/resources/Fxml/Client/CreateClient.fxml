@@ -6,42 +6,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0"
-            prefWidth="850.0" styleClass="create_client_container" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.knk_gr23.Controllers.Admin.CreateClientController">
-    <Text layoutX="23.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client Account"
-          AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0"/>
-    <VBox fillWidth="false" layoutX="12.0" layoutY="33.0" prefHeight="711.0" prefWidth="367.0"
-          styleClass="create_client_container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:"/>
-        <TextField fx:id="fName_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:"/>
-        <TextField fx:id="lName_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:"/>
-        <TextField fx:id="password_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal ID:"/>
-        <TextField fx:id="pID_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HomeAddress"/>
-        <TextField fx:id="hAddress_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit History"/>
-        <TextField fx:id="cHistory_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employment status"/>
-        <TextField fx:id="empStatus_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income"/>
-        <TextField fx:id="Income_fld"/>
-    </VBox>
-    <VBox fillWidth="false" layoutX="385.0" layoutY="39.0" prefHeight="711.0" prefWidth="445.0"
-          styleClass="create_client_container">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Amount:"/>
-        <TextField fx:id="cAmount_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Intrest:"/>
-        <TextField fx:id="interest_fld"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Debt-to-income ratio:"/>
-        <TextField fx:id="dToI_FLD"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:"/>
-        <TextField fx:id="duration_fld"/>
-        <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create New Clientt"/>
-    </VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.CreateClientController">
+    <children>
+        <Text layoutX="23.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+        <VBox fillWidth="false" layoutX="12.0" layoutY="33.0" prefHeight="711.0" prefWidth="367.0" styleClass="create_client_container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+                <TextField fx:id="fName_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+                <TextField fx:id="lName_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+                <TextField fx:id="password_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal ID:" />
+                <TextField fx:id="pID_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HomeAddress" />
+                <TextField fx:id="hAddress_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit History" />
+                <TextField fx:id="cHistory_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employment status" />
+                <TextField fx:id="empStatus_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income" />
+                <TextField fx:id="Income_fld" />
+            </children>
+        </VBox>
+        <VBox fillWidth="false" layoutX="385.0" layoutY="39.0" prefHeight="711.0" prefWidth="445.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Amount:" />
+                <TextField fx:id="cAmount_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Intrest:" />
+                <TextField fx:id="interest_fld" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Debt-to-income ratio:" />
+                <TextField fx:id="dToI_FLD" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" />
+                <TextField fx:id="duration_fld" />
+                <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create New Clientt" />
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>
