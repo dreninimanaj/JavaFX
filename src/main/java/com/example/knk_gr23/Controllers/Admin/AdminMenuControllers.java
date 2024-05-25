@@ -20,8 +20,6 @@ public class AdminMenuControllers implements Initializable {
     @FXML
     private Button logout_btn;
 
-    @FXML
-    private Text secure_credit;
 
 
 
@@ -37,7 +35,7 @@ public class AdminMenuControllers implements Initializable {
         this.clients_btn.setText(resourceBundle.getString("lblClients"));
         this.requests_btn.setText(resourceBundle.getString("lblRequests"));
         this.logout_btn.setText(resourceBundle.getString("lblLogout"));
-        this.secure_credit.setText(resourceBundle.getString("lblSecureCredit"));
+
     }
 
     public void handleCreateClient(ActionEvent actionEvent) {

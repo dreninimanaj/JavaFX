@@ -4,10 +4,14 @@ import com.example.knk_gr23.Models.Loan;
 import com.example.knk_gr23.Services.LoanService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class RequestComponentController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class RequestComponentController implements Initializable {
 
     @FXML
     private Label loanIdLabel;
@@ -54,5 +58,15 @@ public class RequestComponentController {
         // Implement the logic to view user information
         System.out.println("Viewing user info for client ID: " + loan.getClient_id());
         // Navigate to the user info page or display a popup with user info
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.loanIdLabel.setText(resourceBundle.getString("lblLoanID"));
+        this.loanAmountLabel.setText(resourceBundle.getString("lblLoanAmount"));
+        this.loanStatusLabel.setText(resourceBundle.getString("lblLoanStatus"));
+        this.acceptLoanButton.setText(resourceBundle.getString("lblAcceptLoan"));
+        this.viewUserInfoButton.setText(resourceBundle.getString("lblViewUserInfo"));
+
     }
 }

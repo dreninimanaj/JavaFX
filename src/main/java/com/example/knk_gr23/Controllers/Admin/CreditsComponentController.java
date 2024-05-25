@@ -32,8 +32,13 @@ public class CreditsComponentController implements Initializable {
 
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.loanAmountLabel.setText(resourceBundle.getString("lblLoanAmount"));
+        this.loanStatusLabel.setText(resourceBundle.getString("lblLoanStatus"));
+        this.loanIdLabel.setText(resourceBundle.getString("lblLoanID"));
+        this.remove_btn.setText(resourceBundle.getString("lblPayloan"));
+        this.toTAble_btn.setText(resourceBundle.getString("lblTable"));
     }
 }
