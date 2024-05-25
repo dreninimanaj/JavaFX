@@ -1,5 +1,12 @@
 package com.example.knk_gr23.Controllers.Admin;
 
+import javafx.fxml.FXML;
+import javafx.scene.layout.VBox;
+
 public class AdminController {
-    int dreni = 5;
+
+    @FXML
+    private VBox requestsListView;
+
+
 }
