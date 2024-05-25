@@ -35,6 +35,8 @@ public class HomeController implements Initializable {
     @FXML
     private Button add_loan_button;
 
+    @FXML
+    private Text lblusername;
 
     @FXML
     private Text accounts_summary;
