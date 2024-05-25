@@ -24,7 +24,6 @@ public class CreateClientController implements Initializable {
     public TextField duration_fld;
     public Button create_client_btn;
 
-
     @FXML
     private Text first_name;
 
