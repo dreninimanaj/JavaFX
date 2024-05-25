@@ -8,38 +8,38 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.CreateClientController">
     <children>
-        <Text layoutX="23.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+        <Text fx:id="create_client_account" layoutX="23.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblCreateNewClientAccount" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
         <VBox fillWidth="false" layoutX="12.0" layoutY="33.0" prefHeight="711.0" prefWidth="367.0" styleClass="create_client_container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+                <Text fx:id="first_name" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblFirstName" />
                 <TextField fx:id="fName_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+                <Text fx:id="last_name" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblLastName" />
                 <TextField fx:id="lName_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+                <Text fx:id="password" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPassword" />
                 <TextField fx:id="password_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal ID:" />
+                <Text fx:id="personal_id" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPersonalID" />
                 <TextField fx:id="pID_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HomeAddress" />
+                <Text fx:id="home_addres" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblHomeAddres" />
                 <TextField fx:id="hAddress_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit History" />
+                <Text fx:id="credit_history" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblCreditHistory" />
                 <TextField fx:id="cHistory_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employment status" />
+                <Text fx:id="employment_status" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmploymentstatus" />
                 <TextField fx:id="empStatus_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income" />
+                <Text fx:id="income" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblIncome" />
                 <TextField fx:id="Income_fld" />
             </children>
         </VBox>
         <VBox fillWidth="false" layoutX="385.0" layoutY="39.0" prefHeight="711.0" prefWidth="445.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Amount:" />
+                <Text fx:id="credit_amount" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblCreditAmount" />
                 <TextField fx:id="cAmount_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Intrest:" />
+                <Text fx:id="interest" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblInterest" />
                 <TextField fx:id="interest_fld" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Debt-to-income ratio:" />
+                <Text fx:id="debt_income" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblDebtToIncomeRatio" />
                 <TextField fx:id="dToI_FLD" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" />
+                <Text fx:id="duration" strokeType="OUTSIDE" strokeWidth="0.0" text="lblDuration" />
                 <TextField fx:id="duration_fld" />
-                <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create New Clientt" />
+                <Button fx:id="create_client_btn" mnemonicParsing="false" text="\%lblCreateNewClient" />
             </children>
         </VBox>
     </children>

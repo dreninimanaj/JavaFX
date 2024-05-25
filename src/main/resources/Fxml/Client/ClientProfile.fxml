@@ -14,17 +14,17 @@
         <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="client_profile_container" stylesheets="@../../Styles/ClientProfile.css">
          <children>
             <FontAwesomeIconView glyphName="USER" layoutX="156.0" layoutY="152.0" size="130" wrappingWidth="68.5714282989502" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="156.0" />
-            <Text layoutX="46.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" AnchorPane.leftAnchor="30.0" />
+            <Text fx:id="name" layoutX="46.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblName" AnchorPane.leftAnchor="30.0" />
             <TextField layoutX="165.0" layoutY="219.0" prefWidth="200.0" AnchorPane.leftAnchor="165.0" />
-            <Text layoutX="46.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LastName" AnchorPane.leftAnchor="30.0" />
+            <Text fx:id="last_name" layoutX="46.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblLastName" AnchorPane.leftAnchor="30.0" />
             <TextField layoutX="165.0" layoutY="263.0" AnchorPane.leftAnchor="165.0" />
-            <Text layoutX="45.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" AnchorPane.leftAnchor="30.0" />
+            <Text fx:id="iphone" layoutX="45.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPhone" AnchorPane.leftAnchor="30.0" />
             <TextField layoutX="165.0" layoutY="315.0" AnchorPane.leftAnchor="165.0" />
-            <Text layoutX="47.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.leftAnchor="30.0" />
+            <Text fx:id="email" layoutX="47.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmail" AnchorPane.leftAnchor="30.0" />
             <TextField layoutX="165.0" layoutY="373.0" AnchorPane.leftAnchor="165.0" />
-            <Text layoutX="51.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" AnchorPane.leftAnchor="30.0" />
+            <Text fx:id="address" layoutX="51.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblAddress" AnchorPane.leftAnchor="30.0" />
             <TextField layoutX="165.0" layoutY="423.0" AnchorPane.leftAnchor="165.0" />
-            <Text layoutX="39.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EmploymentStatus" AnchorPane.leftAnchor="30.0" />
+            <Text fx:id="employment_status" layoutX="39.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmploymentStatus" AnchorPane.leftAnchor="30.0" />
             <TextField layoutX="165.0" layoutY="480.0" AnchorPane.leftAnchor="165.0" />
          </children></AnchorPane>
     </center>
