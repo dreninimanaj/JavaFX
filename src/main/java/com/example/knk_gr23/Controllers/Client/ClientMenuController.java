@@ -27,8 +27,6 @@ public class ClientMenuController implements Initializable {
     @FXML
     private Button add_btn;
     @FXML
-    private Text safe_Credits;
-    @FXML
     private Text apply_loan;
     @FXML
     private Label write_data;
@@ -41,7 +39,6 @@ public class ClientMenuController implements Initializable {
         this.apply_btn.setText(resourceBundle.getString("lblApply"));
         this.profile_btn.setText(resourceBundle.getString("lblprofile"));
         this.add_btn.setText(resourceBundle.getString("lblAdd"));
-        this.safe_Credits.setText(resourceBundle.getString("lblSafeCredits"));
         this.apply_loan.setText(resourceBundle.getString("lblApplyforaloan"));
         this.write_data.setText(resourceBundle.getString("lblWriteyourdatahereandapply"));
         this.logout_btn.setText(resourceBundle.getString("lbllogout"));

@@ -35,8 +35,6 @@ public class HomeController implements Initializable {
     @FXML
     private Button add_loan_button;
 
-    @FXML
-    private Text lblusername;
 
     @FXML
     private Text accounts_summary;
@@ -87,6 +85,5 @@ public class HomeController implements Initializable {
        // this.lblusername.setText(resourceBundle.getString("lblHi"));
         this.accounts_summary.setText(resourceBundle.getString("lblAccountsSummary"));
         this.add_loan_button.setText(resourceBundle.getString("lblButton"));
-        this.lblusername.setText(resourceBundle.getString("lblHi"));
     }
 }
