@@ -33,21 +33,21 @@ public class RequestComponentController {
         loanStatusLabel.setText(loan.getLoan_status());
     }
 
-//    @FXML
-//    private void handleAcceptLoan(ActionEvent event) {
-//        try {
-//            boolean success = LoanService.acceptLoan(loan.getLoan_id());
-//            if (success) {
-//                loanStatusLabel.setText("approved");
-//                acceptLoanButton.setDisable(true);  // Disable button after acceptance
-//            } else {
-//                System.err.println("Failed to accept loan with ID: " + loan.getLoan_id());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.err.println("Error while accepting loan with ID: " + loan.getLoan_id());
-//        }
-//    }
+    @FXML
+    private void handleAcceptLoan(ActionEvent event) {
+        try {
+            boolean success = LoanService.acceptLoan(loan.getLoan_id());
+            if (success) {
+                loanStatusLabel.setText("approved");
+                acceptLoanButton.setDisable(true);  // Disable button after acceptance
+            } else {
+                System.err.println("Failed to accept loan with ID: " + loan.getLoan_id());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error while accepting loan with ID: " + loan.getLoan_id());
+        }
+    }
 
     @FXML
     private void handleViewUserInfo(ActionEvent event) {

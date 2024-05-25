@@ -12,4 +12,13 @@ public class LoanService {
     public static List<Loan> getAllLoansByUser(User user) throws SQLException {
         return LoanRepository.getAllLoansByUser(user);
     }
+
+    public static boolean acceptLoan(int loanId) {
+        try {
+            return LoanRepository.updateLoanStatus(loanId, "approved");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
