@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.ClientProfileController">
@@ -11,22 +12,45 @@
         <fx:include source="ClientMenu.fxml" />
     </left>
     <center>
-        <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="client_profile_container" stylesheets="@../../Styles/ClientProfile.css">
-         <children>
-            <FontAwesomeIconView glyphName="USER" layoutX="156.0" layoutY="152.0" size="130" wrappingWidth="68.5714282989502" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="156.0" />
+        <AnchorPane minWidth="600.0" prefHeight="400.0" prefWidth="700.0" styleClass="client_profile_container" stylesheets="@../../Styles/ClientProfile.css">
+            <FontAwesomeIconView glyphName="USER" layoutX="266.0" layoutY="154.0" size="130" wrappingWidth="68.5714282989502" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="265.4285717010498" />
             <Text fx:id="name" layoutX="46.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblName" AnchorPane.leftAnchor="30.0" />
-            <TextField layoutX="165.0" layoutY="219.0" prefWidth="200.0" AnchorPane.leftAnchor="165.0" />
+            <Label fx:id="emri_lbl" layoutX="271.0" layoutY="221.0" text="Emri">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
             <Text fx:id="last_name" layoutX="46.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblLastName" AnchorPane.leftAnchor="30.0" />
-            <TextField layoutX="165.0" layoutY="263.0" AnchorPane.leftAnchor="165.0" />
+            <Label fx:id="mbiemri_lbl" layoutX="269.0" layoutY="265.0" text="Mbiemri">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
             <Text fx:id="iphone" layoutX="45.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPhone" AnchorPane.leftAnchor="30.0" />
-            <TextField layoutX="165.0" layoutY="315.0" AnchorPane.leftAnchor="165.0" />
+            <Label fx:id="telefoni_lbl" layoutX="270.0" layoutY="326.0" text="Telefoni">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
             <Text fx:id="email" layoutX="47.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmail" AnchorPane.leftAnchor="30.0" />
-            <TextField layoutX="165.0" layoutY="373.0" AnchorPane.leftAnchor="165.0" />
+            <Label fx:id="emaili_lbl" layoutX="272.0" layoutY="375.0" text="Emaili">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
             <Text fx:id="address" layoutX="51.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblAddress" AnchorPane.leftAnchor="30.0" />
-            <TextField layoutX="165.0" layoutY="423.0" AnchorPane.leftAnchor="165.0" />
             <Text fx:id="employment_status" layoutX="39.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmploymentStatus" AnchorPane.leftAnchor="30.0" />
-            <TextField layoutX="165.0" layoutY="480.0" AnchorPane.leftAnchor="165.0" />
-         </children></AnchorPane>
+            <Label fx:id="punsimi_lbl" layoutX="271.0" layoutY="482.0" text="Punsimi">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+            <Label fx:id="adresa_lbl" layoutX="268.0" layoutY="425.0" text="Adresa">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+        </AnchorPane>
     </center>
 
 </BorderPane>

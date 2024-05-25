@@ -30,8 +30,15 @@ public class ClientProfileController implements Initializable {
         this.address.setText(resourceBundle.getString("lblAddress"));
         this.employment_status.setText(resourceBundle.getString("lblEmploymentStatus"));
 
+        emri_lbl.setText(SessionMenager.getClient().getName());
+        emaili_lbl.setText(SessionMenager.getClient().getEmail());
+        telefoni_lbl.setText(SessionMenager.getClient().getPhone());
+        adresa_lbl.setText(SessionMenager.getClient().getAddress());
+        punsimi_lbl.setText(SessionMenager.getClient().getEmploymentStatus());
+
 
 
     }
 
 }
+

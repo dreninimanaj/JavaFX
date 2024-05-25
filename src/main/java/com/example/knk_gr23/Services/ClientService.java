@@ -9,7 +9,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ClientService {
-    public static List<User> getAllClients() throws SQLException {
-        return ClientRepository.getAllClients();
+        public static Client getClient(int userId) {
+            try {
+                return ClientRepository.getClientByUserId(userId);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        public static List<Client> getAllClients() throws SQLException {
+            return ClientRepository.getAllClients();
+        }
     }
 }

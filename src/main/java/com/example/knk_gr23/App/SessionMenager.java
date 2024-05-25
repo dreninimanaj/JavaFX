@@ -6,6 +6,19 @@ public class SessionMenager
 {
     private static User user;
 
+    private static Client client;
+
+    public static Client getClient() {
+        return client;
+    }
+
+    public static void setClient(Client client) {
+        SessionMenager.client = client;
+    }
+    public static void clearClient() {
+        SessionMenager.client = null;
+    }
+
     public static User getUser() {
         return user;
     }
