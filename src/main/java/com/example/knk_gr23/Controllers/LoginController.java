@@ -15,6 +15,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import com.example.knk_gr23.Services.ClientService;
 
 public class LoginController implements Initializable {
 
@@ -56,6 +57,7 @@ public class LoginController implements Initializable {
             } else {
                 System.out.println("client");
                 Navigator.navigate(ae, Navigator.HOME_PAGE);
+                SessionMenager.setClient(ClientService.getClient(user.getId()));
             }
             System.out.println("shini");
         }

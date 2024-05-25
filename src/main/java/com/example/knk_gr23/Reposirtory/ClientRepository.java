@@ -14,13 +14,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import com.example.knk_gr23.Models.Client;
 
 public class ClientRepository {
 
     // Method to get all clients
-    public static List<User> getAllClients() {
-        List<User> clients = new ArrayList<>();
-        String query = "SELECT * FROM users WHERE role = 'customer'";
+    public static List<Client> getAllClients() {
+        List<Client> clients = new ArrayList<>();
+        String query = "SELECT * FROM clients WHERE 1 = 1";
 
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query);
@@ -30,8 +31,8 @@ public class ClientRepository {
             System.out.println("Executing query: " + query);
 
             while (rs.next()) {
-                // Create and add the User object from the ResultSet to the list
-                clients.add(getFromResultSet(rs));
+                clients.add(getClientFromResultSet(rs));
+
             }
         } catch (SQLException e) {
             System.err.println("Failed to fetch clients: " + e.getMessage());
@@ -56,5 +57,38 @@ public class ClientRepository {
             return null;
         }
     }
+        public static Client getClientByUserId(int userId) throws SQLException {
+            String query = "SELECT * FROM clients WHERE users_id = ?";
+            try (Connection conn = DatabaseUtil.getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setInt(1, userId);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        return getClientFromResultSet(rs);
+                    }
+                }
+            }
+            return null;
+        }
+
+        private static Client getClientFromResultSet(ResultSet rs) throws SQLException {
+            int clientId = rs.getInt("client_id");
+            String name = rs.getString("name");
+            String address = rs.getString("address");
+            String phone = rs.getString("phone");
+            String email = rs.getString("email");
+            String employmentStatus = rs.getString("employment_status");
+            BigDecimal income = rs.getBigDecimal("income");
+            String creditHistory = rs.getString("credit_history");
+            BigDecimal debtToIncomeRatio = rs.getBigDecimal("debt_to_income_ratio");
+            int usersId = rs.getInt("users_id");
+
+            return new Client(clientId, name, address, phone, email, employmentStatus, income, creditHistory, debtToIncomeRatio, usersId);
+        }
+    }
 }
+
+
+
+
 
