@@ -77,7 +77,7 @@ public class HomeController implements Initializable {
                 totalHeight += busPane.getPrefHeight() + loansListView.getSpacing();
 
             } catch (IOException e) {
-                System.out.println("eroor");
+                System.out.println("eroor2");
             }
             loansListView.setPrefHeight(totalHeight);
         }
