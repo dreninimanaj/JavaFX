@@ -66,4 +66,20 @@ public class LoanRepository {
             return null;
         }
     }
+    public static boolean updateLoanStatus(int loanId, String status) throws SQLException {
+        String query = "UPDATE loans SET loan_status = ? WHERE loan_id = ?";
+
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setString(1, status);
+            pstmt.setInt(2, loanId);
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            System.err.println("Failed to update loan status: " + e.getMessage());
+            throw e;
+        }
+    }
 }
