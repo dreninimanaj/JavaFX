@@ -40,4 +40,15 @@ public class AdminMenuControllers implements Initializable {
         this.secure_credit.setText(resourceBundle.getString("lblSecureCredit"));
     }
 
+    public void handleCreateClient(ActionEvent actionEvent) {
+       // Navigator.navigate(actionEvent, Navigator.CREATE_CLIENT_PAGE);
+    }
+
+    public void handleClients(ActionEvent actionEvent) {
+        Navigator.navigate(actionEvent, Navigator.ADMIN_PAGE);
+    }
+
+    public void handleRequests(ActionEvent actionEvent) {
+        Navigator.navigate(actionEvent, Navigator.REQUESTS_PAGE);
+    }
 }

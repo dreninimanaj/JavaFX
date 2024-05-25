@@ -14,17 +14,17 @@
          <Text fx:id="secure_credit" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblSecureCredit" />
       </VBox>
       <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <Button fx:id="create_client_btn" mnemonicParsing="false" text="\%lblCreateClient">
+         <Button fx:id="create_client_btn" mnemonicParsing="false" onAction="#handleCreateClient" text="\%lblCreateClient">
             <graphic>
                <FontAwesomeIconView glyphName="PLUS" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="clients_btn" mnemonicParsing="false" text="\%lblClients">
+         <Button fx:id="clients_btn" mnemonicParsing="false" onAction="#handleClients" text="\%lblClients">
             <graphic>
                <FontAwesomeIconView glyphName="LIST" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="requests_btn" mnemonicParsing="false" text="   %lblRequests">
+         <Button fx:id="requests_btn" mnemonicParsing="false" onAction="#handleRequests" text="   %lblRequests">
             <graphic>
                <FontAwesomeIconView glyphName="EXCLAMATION" size="20" />
             </graphic>

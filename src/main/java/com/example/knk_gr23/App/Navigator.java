@@ -22,6 +22,7 @@ public class Navigator {
     public final static String ADD_LOAN_PAGE = "/Fxml/Client/AddLoan.fxml";
     public final static String CLIENT_PROFILE_PAGE = "/Fxml/Client/ClientProfile.fxml";
 
+    public final static String REQUESTS_PAGE = "/Fxml/Admin/Requests.fxml";
     public final static String CALCULATOR_PAGE = "/Fxml/Client/LoanCalculator.fxml";
     // Method to navigate using an event
     public static void navigate(Event event, String form){
