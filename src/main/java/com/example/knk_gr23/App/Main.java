@@ -7,5 +7,6 @@ public class Main extends Application {
 
     public void start(Stage stage){
         Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+        System.out.println(1);
     }
 }

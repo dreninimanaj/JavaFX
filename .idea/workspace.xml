@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="behet shfaqja e kredive tek dashbordi i klientit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/CreateClientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/CreateClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/CreateClient.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/CreateClient.css" afterDir="false" />
-    </list>
+    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="behet shfaqja e kredive tek dashbordi i klientit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,6 +229,7 @@
     <MESSAGE value="b" />
     <MESSAGE value="b1" />
     <MESSAGE value="behet shfaqja e kredive tek dashbordi i klientit" />
-    <option name="LAST_COMMIT_MESSAGE" value="behet shfaqja e kredive tek dashbordi i klientit" />
+    <MESSAGE value="behet shfaqja e requestave nga userat" />
+    <option name="LAST_COMMIT_MESSAGE" value="behet shfaqja e requestave nga userat" />
   </component>
 </project>
