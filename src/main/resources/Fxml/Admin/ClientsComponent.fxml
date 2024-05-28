@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="box_container" stylesheets="@../../Styles/CreditBox.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.ClientsComponentController">
+<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="box_container" stylesheets="@../../Styles/CreditBox.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.ClientsComponentController">
     <children>
-        <Label fx:id="clientIdLabel" layoutX="10.0" layoutY="10.0" styleClass="credit_date_lbl" text="Client ID" />
-        <Label fx:id="clientName" layoutX="78.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="name" />
+        <Label fx:id="clientIdLabel" layoutX="10.0" layoutY="10.0" styleClass="credit_date_lbl" text="\%lblClientID" />
+        <Label fx:id="clientName" layoutX="78.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="\%lblname" />
         <Line endX="400.0" endY="10.0" layoutX="50.0" layoutY="30.0" startY="30.0" />
-        <Label fx:id="clientSurname" layoutX="198.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="surname" />
-        <Button fx:id="toLoans_btn" layoutX="420.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLoans" text="Loans" AnchorPane.rightAnchor="10.0" />
+        <Label fx:id="clientSurname" layoutX="198.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="\%lblsurname" />
+        <Button fx:id="toLoans_btn" layoutX="420.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLoans" text="\%lblLoans" AnchorPane.rightAnchor="10.0" />
     </children>
 </AnchorPane>
