@@ -14,7 +14,7 @@ import java.util.List;
 public class LoanCalculatorRepository {
 
     public static void saveLoan(LoanDto loan, int clientId) throws SQLException {
-        String insertLoanSQL = "INSERT INTO loans (client_id, loan_amount, interest_rate, loan_start_date, loan_end_date, loan_status, monthly_payment, total_interest, total_paid) VALUES (?, ?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL ? YEAR), ''pending'', ?, ?, ?)";
+        String insertLoanSQL = "INSERT INTO loans (client_id, loan_amount, interest_rate, loan_start_date, loan_end_date, loan_status, monthly_payment, total_interest, total_paid) VALUES (?, ?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL ? YEAR), 'Pending', ?, ?, ?)";
         String insertPaymentSQL = "INSERT INTO payments (loan_id, payment_date, scheduled_payment, principal_amount, interest_amount, balance, month, old_balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseUtil.getConnection()) {
