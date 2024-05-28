@@ -1,0 +1,475 @@
+Index: src/main/java/com/example/knk_gr23/Services/ClientService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Services;\r\n\r\nimport com.example.knk_gr23.Models.Loan;\r\nimport com.example.knk_gr23.Models.User;\r\nimport com.example.knk_gr23.Reposirtory.ClientRepository;\r\nimport com.example.knk_gr23.Reposirtory.LoanRepository;\r\n\r\nimport java.sql.SQLException;\r\nimport java.util.List;\r\n\r\npublic class ClientService {\r\n    public static List<User> getAllClients() throws SQLException {\r\n        return ClientRepository.getAllClients();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Services/ClientService.java b/src/main/java/com/example/knk_gr23/Services/ClientService.java
+--- a/src/main/java/com/example/knk_gr23/Services/ClientService.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/Services/ClientService.java	(date 1716645150807)
+@@ -1,5 +1,6 @@
+ package com.example.knk_gr23.Services;
+ 
++import com.example.knk_gr23.Models.Client;
+ import com.example.knk_gr23.Models.Loan;
+ import com.example.knk_gr23.Models.User;
+ import com.example.knk_gr23.Reposirtory.ClientRepository;
+@@ -9,7 +10,16 @@
+ import java.util.List;
+ 
+ public class ClientService {
+-    public static List<User> getAllClients() throws SQLException {
++
++    public static Client getClient(int userId) {
++        try {
++            return ClientRepository.getClientByUserId(userId);
++        } catch (SQLException e) {
++            e.printStackTrace();
++            return null;
++        }
++    }
++    public static List<Client> getAllClients() throws SQLException {
+         return ClientRepository.getAllClients();
+     }
+ }
+Index: src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Reposirtory;\r\n\r\nimport com.example.knk_gr23.App.SessionMenager;\r\nimport com.example.knk_gr23.Models.Loan;\r\nimport com.example.knk_gr23.Models.User;\r\nimport com.example.knk_gr23.Services.LoanService;\r\nimport com.example.knk_gr23.database.DatabaseUtil;\r\n\r\nimport java.math.BigDecimal;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.Date;\r\nimport java.util.List;\r\n\r\npublic class ClientRepository {\r\n\r\n    // Method to get all clients\r\n    public static List<User> getAllClients() {\r\n        List<User> clients = new ArrayList<>();\r\n        String query = \"SELECT * FROM users WHERE role = 'customer'\";\r\n\r\n        try (Connection conn = DatabaseUtil.getConnection();\r\n             PreparedStatement pstmt = conn.prepareStatement(query);\r\n             ResultSet rs = pstmt.executeQuery()) {\r\n\r\n            // Log the execution of the query\r\n            System.out.println(\"Executing query: \" + query);\r\n\r\n            while (rs.next()) {\r\n                // Create and add the User object from the ResultSet to the list\r\n                clients.add(getFromResultSet(rs));\r\n            }\r\n        } catch (SQLException e) {\r\n            System.err.println(\"Failed to fetch clients: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n        return clients;\r\n    }\r\n\r\n    // Helper method to create a User object from a ResultSet\r\n    private static User getFromResultSet(ResultSet result) {\r\n        try {\r\n            int user_id = result.getInt(\"user_id\");\r\n            String username = result.getString(\"username\");\r\n            String password_hash = result.getString(\"password_hash\");\r\n            String email = result.getString(\"email\");\r\n            String role = result.getString(\"role\");\r\n            String salt = result.getString(\"salt\");\r\n\r\n            return new User(user_id, username, password_hash, email, role, salt);\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        }\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java b/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java
+--- a/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java	(date 1716645150815)
+@@ -1,6 +1,7 @@
+ package com.example.knk_gr23.Reposirtory;
+ 
+ import com.example.knk_gr23.App.SessionMenager;
++import com.example.knk_gr23.Models.Client;
+ import com.example.knk_gr23.Models.Loan;
+ import com.example.knk_gr23.Models.User;
+ import com.example.knk_gr23.Services.LoanService;
+@@ -18,9 +19,9 @@
+ public class ClientRepository {
+ 
+     // Method to get all clients
+-    public static List<User> getAllClients() {
+-        List<User> clients = new ArrayList<>();
+-        String query = "SELECT * FROM users WHERE role = 'customer'";
++    public static List<Client> getAllClients() {
++        List<Client> clients = new ArrayList<>();
++        String query = "SELECT * FROM clients WHERE 1 = 1";
+ 
+         try (Connection conn = DatabaseUtil.getConnection();
+              PreparedStatement pstmt = conn.prepareStatement(query);
+@@ -31,7 +32,7 @@
+ 
+             while (rs.next()) {
+                 // Create and add the User object from the ResultSet to the list
+-                clients.add(getFromResultSet(rs));
++                clients.add(getClientFromResultSet(rs));
+             }
+         } catch (SQLException e) {
+             System.err.println("Failed to fetch clients: " + e.getMessage());
+@@ -55,6 +56,34 @@
+             e.printStackTrace();
+             return null;
+         }
++    }
++    public static Client getClientByUserId(int userId) throws SQLException {
++        String query = "SELECT * FROM clients WHERE users_id = ?";
++        try (Connection conn = DatabaseUtil.getConnection();
++             PreparedStatement pstmt = conn.prepareStatement(query)) {
++            pstmt.setInt(1, userId);
++            try (ResultSet rs = pstmt.executeQuery()) {
++                if (rs.next()) {
++                    return getClientFromResultSet(rs);
++                }
++            }
++        }
++        return null;
++    }
++
++    private static Client getClientFromResultSet(ResultSet rs) throws SQLException {
++        int clientId = rs.getInt("client_id");
++        String name = rs.getString("name");
++        String address = rs.getString("address");
++        String phone = rs.getString("phone");
++        String email = rs.getString("email");
++        String employmentStatus = rs.getString("employment_status");
++        BigDecimal income = rs.getBigDecimal("income");
++        String creditHistory = rs.getString("credit_history");
++        BigDecimal debtToIncomeRatio = rs.getBigDecimal("debt_to_income_ratio");
++        int usersId = rs.getInt("users_id");
++
++        return new Client(clientId, name, address, phone, email, employmentStatus, income, creditHistory, debtToIncomeRatio, usersId);
+     }
+ }
+ 
+Index: src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Admin;\r\n\r\nimport com.example.knk_gr23.Models.User;\r\nimport com.example.knk_gr23.Services.ClientService;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.ListView;\r\nimport javafx.scene.layout.HBox;\r\nimport javafx.scene.layout.Pane;\r\nimport javafx.scene.layout.VBox;\r\n\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.sql.SQLException;\r\nimport java.util.List;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class ClientsController  implements Initializable {\r\n\r\n\r\n    @FXML\r\n    private VBox clientsList;\r\n\r\n    private void displayClients(List<User> usersList){\r\n        double totalHeight=300;\r\n        clientsList.getChildren().clear();\r\n        for (User user : usersList) {\r\n            System.out.println(user);\r\n            try {\r\n                System.out.println(user.getId());\r\n                System.out.println();\r\n                FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/Fxml/Admin/ClientsComponent.fxml\"));\r\n                Pane busPane = loader.load();\r\n                ClientsComponentController clientsComponentController = loader.getController();\r\n                clientsComponentController.setData(user);\r\n                clientsList.getChildren().add(busPane);\r\n\r\n                totalHeight += busPane.getPrefHeight() + clientsList.getSpacing();\r\n\r\n            } catch (IOException e) {\r\n                System.out.println(\"eroor\");\r\n            }\r\n            clientsList.setPrefHeight(totalHeight);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n        try {\r\n            List<User> clients = ClientService.getAllClients();\r\n            displayClients(clients);\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java b/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java	(date 1716645150787)
+@@ -1,5 +1,6 @@
+ package com.example.knk_gr23.Controllers.Admin;
+ 
++import com.example.knk_gr23.Models.Client;
+ import com.example.knk_gr23.Models.User;
+ import com.example.knk_gr23.Services.ClientService;
+ import javafx.fxml.FXML;
+@@ -22,18 +23,18 @@
+     @FXML
+     private VBox clientsList;
+ 
+-    private void displayClients(List<User> usersList){
++    private void displayClients(List<Client> usersList){
+         double totalHeight=300;
+         clientsList.getChildren().clear();
+-        for (User user : usersList) {
+-            System.out.println(user);
++        for (Client client : usersList) {
++            System.out.println(client);
+             try {
+-                System.out.println(user.getId());
+-                System.out.println();
++                System.out.println(client.getClientId());
++                System.out.println(client.getEmail());
+                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/ClientsComponent.fxml"));
+                 Pane busPane = loader.load();
+                 ClientsComponentController clientsComponentController = loader.getController();
+-                clientsComponentController.setData(user);
++                clientsComponentController.setData(client);
+                 clientsList.getChildren().add(busPane);
+ 
+                 totalHeight += busPane.getPrefHeight() + clientsList.getSpacing();
+@@ -48,7 +49,7 @@
+     @Override
+     public void initialize(URL url, ResourceBundle resourceBundle) {
+         try {
+-            List<User> clients = ClientService.getAllClients();
++            List<Client> clients = ClientService.getAllClients();
+             displayClients(clients);
+         } catch (SQLException e) {
+             e.printStackTrace();
+Index: src/main/java/com/example/knk_gr23/App/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.App;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\n\r\npublic class Main extends Application {\r\n\r\n    public void start(Stage stage){\r\n        Navigator.navigate(stage, Navigator.LOGIN_PAGE);\r\n        System.out.println(1);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/App/Main.java b/src/main/java/com/example/knk_gr23/App/Main.java
+--- a/src/main/java/com/example/knk_gr23/App/Main.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/App/Main.java	(date 1716646782576)
+@@ -7,6 +7,5 @@
+ 
+     public void start(Stage stage){
+         Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+-        System.out.println(1);
+     }
+ }
+\ No newline at end of file
+Index: src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Admin;\r\n\r\nimport com.example.knk_gr23.Models.User;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\n\r\npublic class ClientsComponentController{\r\n    @FXML\r\n    private Label clientIdLabel;\r\n    @FXML\r\n    private Label clientName;\r\n    @FXML\r\n    private Button toLoans_btn;\r\n    @FXML\r\n    private Label clientSurname;\r\n\r\n    @FXML\r\n    public void handleLoans(ActionEvent ae) {\r\n    }\r\n\r\n    public void setData(User user) {\r\n        clientIdLabel.setText(String.valueOf(user.getId()));\r\n        clientName.setText(user.getUsername());\r\n        clientSurname.setText(user.getEmail());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java b/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java	(date 1716645269207)
+@@ -1,5 +1,6 @@
+ package com.example.knk_gr23.Controllers.Admin;
+ 
++import com.example.knk_gr23.Models.Client;
+ import com.example.knk_gr23.Models.User;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+@@ -20,9 +21,9 @@
+     public void handleLoans(ActionEvent ae) {
+     }
+ 
+-    public void setData(User user) {
+-        clientIdLabel.setText(String.valueOf(user.getId()));
+-        clientName.setText(user.getUsername());
+-        clientSurname.setText(user.getEmail());
++    public void setData(Client client) {
++        clientIdLabel.setText(String.valueOf(client.getClientId()));
++        clientName.setText(client.getName());
++        clientSurname.setText(client.getEmail());
+     }
+ }
+Index: src/main/java/com/example/knk_gr23/Controllers/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers;\r\n\r\nimport com.example.knk_gr23.App.Navigator;\r\nimport com.example.knk_gr23.App.SessionMenager;\r\nimport com.example.knk_gr23.Controllers.Client.ClientController;\r\nimport com.example.knk_gr23.Models.User;\r\nimport com.example.knk_gr23.Models.dto.LoginUserDto;\r\nimport com.example.knk_gr23.Services.UserService;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.text.Text;\r\n\r\nimport java.net.URL;\r\nimport java.util.Locale;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class LoginController implements Initializable {\r\n\r\n    @FXML\r\n    private Label adresa_perdoruesit;\r\n    @FXML\r\n    private Button login_btn;\r\n    @FXML\r\n    private PasswordField password_hapsira;\r\n    @FXML\r\n    private Label error_lbl;\r\n    @FXML\r\n    private TextField textfield_perdoruesit;\r\n    @FXML\r\n    private Label passwordi_perdoruesit;\r\n\r\n    @FXML\r\n    private void handleLogin(ActionEvent ae) {\r\n        LoginUserDto loginUserData = new LoginUserDto(\r\n                this.textfield_perdoruesit.getText(),\r\n                this.password_hapsira.getText()\r\n        );\r\n\r\n        User user = UserService.login(loginUserData);\r\n        if (user == null) {\r\n            this.error_lbl.setText(\"Login failed\");\r\n        } else {\r\n            System.out.println(\"test\");\r\n            SessionMenager.setUser(user);\r\n            String role = user.getRole();\r\n            System.out.println(\"role: \" + role);\r\n//            lblUsername.setText(\"hi!\" + SessionMenager.getUser().getUsername());\r\n\r\n            if (role == null) {\r\n                this.error_lbl.setText(\"User role is undefined.\");\r\n            } else if (role.equals(\"admin\")) {\r\n                System.out.println(\"admin\");\r\n                Navigator.navigate(ae, Navigator.ADMIN_PAGE);\r\n            } else {\r\n                System.out.println(\"client\");\r\n                Navigator.navigate(ae, Navigator.HOME_PAGE);\r\n            }\r\n            System.out.println(\"shini\");\r\n        }\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n        this.passwordi_perdoruesit.setText(resourceBundle.getString(\"lblPassword\"));\r\n        this.adresa_perdoruesit.setText(resourceBundle.getString(\"lblUsername\"));\r\n    }\r\n\r\n    @FXML\r\n    public void handleChangeLanguage(ActionEvent ae) {\r\n        if (Locale.getDefault().getLanguage().equals(\"sq\")) {\r\n            Locale.setDefault(new Locale(\"en\"));\r\n        } else {\r\n            Locale.setDefault(new Locale(\"sq\"));\r\n        }\r\n        System.out.println(Locale.getDefault().getLanguage());\r\n        Navigator.navigate(ae, Navigator.LOGIN_PAGE);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/LoginController.java b/src/main/java/com/example/knk_gr23/Controllers/LoginController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/LoginController.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/Controllers/LoginController.java	(date 1716645269213)
+@@ -5,6 +5,7 @@
+ import com.example.knk_gr23.Controllers.Client.ClientController;
+ import com.example.knk_gr23.Models.User;
+ import com.example.knk_gr23.Models.dto.LoginUserDto;
++import com.example.knk_gr23.Services.ClientService;
+ import com.example.knk_gr23.Services.UserService;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+@@ -56,6 +57,7 @@
+             } else {
+                 System.out.println("client");
+                 Navigator.navigate(ae, Navigator.HOME_PAGE);
++                SessionMenager.setClient(ClientService.getClient(user.getId()));
+             }
+             System.out.println("shini");
+         }
+Index: src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.Controllers.Client;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.text.Text;\r\n\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class ClientProfileController implements Initializable {\r\n    @FXML\r\n    private Text name;\r\n    @FXML\r\n    private Text last_name;\r\n    @FXML\r\n    private Text iphone ;\r\n    @FXML\r\n    private Text email;\r\n    @FXML\r\n    private Text address;\r\n    @FXML\r\n    private Text employment_status;\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n        this.name.setText(resourceBundle.getString(\"lblName\"));\r\n        this.last_name.setText(resourceBundle.getString(\"lblLastName\"));\r\n        this.iphone.setText(resourceBundle.getString(\"lblPhone\"));\r\n        this.email.setText(resourceBundle.getString(\"lblEmail\"));\r\n        this.address.setText(resourceBundle.getString(\"lblAddress\"));\r\n        this.employment_status.setText(resourceBundle.getString(\"lblEmploymentStatus\"));\r\n\r\n\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java b/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java
+--- a/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java	(date 1716647052386)
+@@ -1,7 +1,9 @@
+ package com.example.knk_gr23.Controllers.Client;
+ 
++import com.example.knk_gr23.App.SessionMenager;
+ import javafx.fxml.FXML;
+ import javafx.fxml.Initializable;
++import javafx.scene.control.Label;
+ import javafx.scene.text.Text;
+ 
+ import java.net.URL;
+@@ -9,6 +11,18 @@
+ 
+ public class ClientProfileController implements Initializable {
+     @FXML
++    private Label emri_lbl;
++    @FXML
++    private Label mbiemri_lbl;
++    @FXML
++    private Label telefoni_lbl;
++    @FXML
++    private Label emaili_lbl;
++    @FXML
++    private Label punsimi_lbl;
++    @FXML
++    private Label adresa_lbl;
++    @FXML
+     private Text name;
+     @FXML
+     private Text last_name;
+@@ -29,8 +43,11 @@
+         this.email.setText(resourceBundle.getString("lblEmail"));
+         this.address.setText(resourceBundle.getString("lblAddress"));
+         this.employment_status.setText(resourceBundle.getString("lblEmploymentStatus"));
+-
+-
++        emri_lbl.setText(SessionMenager.getClient().getName());
++        emaili_lbl.setText(SessionMenager.getClient().getEmail());
++        telefoni_lbl.setText(SessionMenager.getClient().getPhone());
++        adresa_lbl.setText(SessionMenager.getClient().getAddress());
++        punsimi_lbl.setText(SessionMenager.getClient().getEmploymentStatus());
+ 
+     }
+ 
+Index: src/main/java/com/example/knk_gr23/App/SessionMenager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.App;\r\n\r\nimport com.example.knk_gr23.Models.User;\r\n\r\npublic class SessionMenager\r\n{\r\n    private static User user;\r\n\r\n    public static User getUser() {\r\n        return user;\r\n    }\r\n\r\n    public static void setUser(User user) {\r\n        SessionMenager.user = user;\r\n    }\r\n\r\n    public static void clearUser() {\r\n        SessionMenager.user = null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/App/SessionMenager.java b/src/main/java/com/example/knk_gr23/App/SessionMenager.java
+--- a/src/main/java/com/example/knk_gr23/App/SessionMenager.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/App/SessionMenager.java	(date 1716644340819)
+@@ -1,10 +1,23 @@
+ package com.example.knk_gr23.App;
+ 
++import com.example.knk_gr23.Models.Client;
+ import com.example.knk_gr23.Models.User;
+ 
+ public class SessionMenager
+ {
+     private static User user;
++    private static Client client;
++
++    public static Client getClient() {
++        return client;
++    }
++
++    public static void setClient(Client client) {
++        SessionMenager.client = client;
++    }
++    public static void clearClient() {
++        SessionMenager.client = null;
++    }
+ 
+     public static User getUser() {
+         return user;
+Index: src/main/resources/Fxml/Client/ClientProfile.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<BorderPane prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.example.knk_gr23.Controllers.Client.ClientProfileController\">\r\n    <left>\r\n        <fx:include source=\"ClientMenu.fxml\" />\r\n    </left>\r\n    <center>\r\n        <AnchorPane prefHeight=\"400.0\" prefWidth=\"600.0\" styleClass=\"client_profile_container\" stylesheets=\"@../../Styles/ClientProfile.css\">\r\n         <children>\r\n            <FontAwesomeIconView glyphName=\"USER\" layoutX=\"156.0\" layoutY=\"152.0\" size=\"130\" wrappingWidth=\"68.5714282989502\" AnchorPane.leftAnchor=\"156.0\" AnchorPane.rightAnchor=\"156.0\" />\r\n            <Text fx:id=\"name\" layoutX=\"46.0\" layoutY=\"242.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"\\%lblName\" AnchorPane.leftAnchor=\"30.0\" />\r\n            <TextField layoutX=\"165.0\" layoutY=\"219.0\" prefWidth=\"200.0\" AnchorPane.leftAnchor=\"165.0\" />\r\n            <Text fx:id=\"last_name\" layoutX=\"46.0\" layoutY=\"286.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"\\%lblLastName\" AnchorPane.leftAnchor=\"30.0\" />\r\n            <TextField layoutX=\"165.0\" layoutY=\"263.0\" AnchorPane.leftAnchor=\"165.0\" />\r\n            <Text fx:id=\"iphone\" layoutX=\"45.0\" layoutY=\"338.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"\\%lblPhone\" AnchorPane.leftAnchor=\"30.0\" />\r\n            <TextField layoutX=\"165.0\" layoutY=\"315.0\" AnchorPane.leftAnchor=\"165.0\" />\r\n            <Text fx:id=\"email\" layoutX=\"47.0\" layoutY=\"396.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"\\%lblEmail\" AnchorPane.leftAnchor=\"30.0\" />\r\n            <TextField layoutX=\"165.0\" layoutY=\"373.0\" AnchorPane.leftAnchor=\"165.0\" />\r\n            <Text fx:id=\"address\" layoutX=\"51.0\" layoutY=\"446.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"\\%lblAddress\" AnchorPane.leftAnchor=\"30.0\" />\r\n            <TextField layoutX=\"165.0\" layoutY=\"423.0\" AnchorPane.leftAnchor=\"165.0\" />\r\n            <Text fx:id=\"employment_status\" layoutX=\"39.0\" layoutY=\"503.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"\\%lblEmploymentStatus\" AnchorPane.leftAnchor=\"30.0\" />\r\n            <TextField layoutX=\"165.0\" layoutY=\"480.0\" AnchorPane.leftAnchor=\"165.0\" />\r\n         </children></AnchorPane>\r\n    </center>\r\n\r\n</BorderPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Fxml/Client/ClientProfile.fxml b/src/main/resources/Fxml/Client/ClientProfile.fxml
+--- a/src/main/resources/Fxml/Client/ClientProfile.fxml	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/resources/Fxml/Client/ClientProfile.fxml	(date 1716642991170)
+@@ -1,9 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+-<?import javafx.scene.control.TextField?>
++<?import javafx.scene.control.Label?>
+ <?import javafx.scene.layout.AnchorPane?>
+ <?import javafx.scene.layout.BorderPane?>
++<?import javafx.scene.text.Font?>
+ <?import javafx.scene.text.Text?>
+ 
+ <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Client.ClientProfileController">
+@@ -11,22 +12,45 @@
+         <fx:include source="ClientMenu.fxml" />
+     </left>
+     <center>
+-        <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="client_profile_container" stylesheets="@../../Styles/ClientProfile.css">
+-         <children>
+-            <FontAwesomeIconView glyphName="USER" layoutX="156.0" layoutY="152.0" size="130" wrappingWidth="68.5714282989502" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="156.0" />
++        <AnchorPane minWidth="600.0" prefHeight="400.0" prefWidth="700.0" styleClass="client_profile_container" stylesheets="@../../Styles/ClientProfile.css">
++            <FontAwesomeIconView glyphName="USER" layoutX="266.0" layoutY="154.0" size="130" wrappingWidth="68.5714282989502" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="265.4285717010498" />
+             <Text fx:id="name" layoutX="46.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblName" AnchorPane.leftAnchor="30.0" />
+-            <TextField layoutX="165.0" layoutY="219.0" prefWidth="200.0" AnchorPane.leftAnchor="165.0" />
++         <Label fx:id="emri_lbl" layoutX="271.0" layoutY="221.0" text="Emri">
++            <font>
++               <Font name="System Bold" size="20.0" />
++            </font>
++         </Label>
+             <Text fx:id="last_name" layoutX="46.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblLastName" AnchorPane.leftAnchor="30.0" />
+-            <TextField layoutX="165.0" layoutY="263.0" AnchorPane.leftAnchor="165.0" />
++         <Label fx:id="mbiemri_lbl" layoutX="269.0" layoutY="265.0" text="Mbiemri">
++            <font>
++               <Font name="System Bold" size="20.0" />
++            </font>
++         </Label>
+             <Text fx:id="iphone" layoutX="45.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblPhone" AnchorPane.leftAnchor="30.0" />
+-            <TextField layoutX="165.0" layoutY="315.0" AnchorPane.leftAnchor="165.0" />
++         <Label fx:id="telefoni_lbl" layoutX="270.0" layoutY="326.0" text="Telefoni">
++            <font>
++               <Font name="System Bold" size="20.0" />
++            </font>
++         </Label>
+             <Text fx:id="email" layoutX="47.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmail" AnchorPane.leftAnchor="30.0" />
+-            <TextField layoutX="165.0" layoutY="373.0" AnchorPane.leftAnchor="165.0" />
++         <Label fx:id="emaili_lbl" layoutX="272.0" layoutY="375.0" text="Emaili">
++            <font>
++               <Font name="System Bold" size="20.0" />
++            </font>
++         </Label>
+             <Text fx:id="address" layoutX="51.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblAddress" AnchorPane.leftAnchor="30.0" />
+-            <TextField layoutX="165.0" layoutY="423.0" AnchorPane.leftAnchor="165.0" />
+             <Text fx:id="employment_status" layoutX="39.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblEmploymentStatus" AnchorPane.leftAnchor="30.0" />
+-            <TextField layoutX="165.0" layoutY="480.0" AnchorPane.leftAnchor="165.0" />
+-         </children></AnchorPane>
++         <Label fx:id="punsimi_lbl" layoutX="271.0" layoutY="482.0" text="Punsimi">
++            <font>
++               <Font name="System Bold" size="20.0" />
++            </font>
++         </Label>
++         <Label fx:id="adresa_lbl" layoutX="268.0" layoutY="425.0" text="Adresa">
++            <font>
++               <Font name="System Bold" size="20.0" />
++            </font>
++         </Label>
++        </AnchorPane>
+     </center>
+ 
+ </BorderPane>
+Index: src/main/java/com/example/knk_gr23/database/DatabaseUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.knk_gr23.database;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\n\r\npublic class DatabaseUtil {\r\n//    private static final String URL = \"jdbc:mysql://localhost:3306/MenaxhimiKredise\";\r\n//    private static final String USER = \"root\";\r\n//    private static final String PASSWORD = \"dreni123\";\r\n//    private static Connection connection = null;\r\n//\r\n//    static {\r\n//        try {\r\n//            Class.forName(\"com.mysql.cj.jdbc.Driver\");\r\n//        } catch (ClassNotFoundException e) {\r\n//            System.err.println(\"Failed to load MySQL driver: \" + e.getMessage());\r\n//            e.printStackTrace();\r\n//        }\r\n//    }\r\n//\r\n//    public static Connection getConnection() {\r\n//        if (connection == null) {\r\n//            try {\r\n//                connection = DriverManager.getConnection(URL, USER, PASSWORD);\r\n//                System.out.println(\"Successfully connected to the database.\");\r\n//            } catch (SQLException e) {\r\n//                System.err.println(\"Connection failed: \" + e.getMessage());\r\n//                e.printStackTrace();\r\n//            }\r\n//        }\r\n//        return connection;\r\n//    }\r\n    private static final String URL = \"jdbc:mysql://localhost:3306/MenaxhimiKredise\";\r\n    private static final String USER = \"root\";\r\n    private static final String PASSWORD = \"220756100077\";\r\n\r\n    static {\r\n        try {\r\n            Class.forName(\"com.mysql.cj.jdbc.Driver\");\r\n        } catch (ClassNotFoundException e) {\r\n            System.err.println(\"Failed to load MySQL driver: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public static Connection getConnection() throws SQLException {\r\n        return DriverManager.getConnection(URL, USER, PASSWORD);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java b/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java
+--- a/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java	(date 1716639735876)
+@@ -33,7 +33,7 @@
+ //    }
+     private static final String URL = "jdbc:mysql://localhost:3306/MenaxhimiKredise";
+     private static final String USER = "root";
+-    private static final String PASSWORD = "220756100077";
++    private static final String PASSWORD = "dreni123";
+ 
+     static {
+         try {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"behet shfaqja e requestave nga userat\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;dreninimanaj&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/DiellzaJ/KNK_Gr23.git&quot;,\r\n    &quot;accountId&quot;: &quot;e533b09b-7918-48e2-8e03-35e4a11eabbc&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fsNFHZLn9OGeSg8UQpDH1Iaclh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/wetransfer_gitignore_2024-05-16_1633 (1)&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.knk_gr23.App.Main\" />\r\n      <module name=\"KNK_Gr23\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.knk_gr23.App.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"757eda13-be27-4cef-a5c0-141e81a2eafb\" name=\"Changes\" comment=\"\" />\r\n      <created>1714585722488</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714585722488</updated>\r\n      <workItem from=\"1714585723910\" duration=\"10000\" />\r\n      <workItem from=\"1715438616980\" duration=\"109000\" />\r\n      <workItem from=\"1715438746358\" duration=\"3811000\" />\r\n      <workItem from=\"1715449632427\" duration=\"9349000\" />\r\n      <workItem from=\"1715503128877\" duration=\"2492000\" />\r\n      <workItem from=\"1715507130172\" duration=\"3612000\" />\r\n      <workItem from=\"1715517007531\" duration=\"6400000\" />\r\n      <workItem from=\"1715588838820\" duration=\"7440000\" />\r\n      <workItem from=\"1715608436396\" duration=\"1936000\" />\r\n      <workItem from=\"1716319103990\" duration=\"319000\" />\r\n      <workItem from=\"1716371022686\" duration=\"20000\" />\r\n      <workItem from=\"1716404863638\" duration=\"9332000\" />\r\n      <workItem from=\"1716541533428\" duration=\"11765000\" />\r\n      <workItem from=\"1716573028337\" duration=\"444000\" />\r\n      <workItem from=\"1716576558091\" duration=\"2374000\" />\r\n      <workItem from=\"1716578983452\" duration=\"6384000\" />\r\n      <workItem from=\"1716626826780\" duration=\"3223000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"begin\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714675946834</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714675946834</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"b\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715467718220</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715467718220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"b1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715510728827</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715510728827</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"behet shfaqja e kredive tek dashbordi i klientit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716544052636</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716544052636</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"behet shfaqja e kredive tek dashbordi i klientit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716570998480</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716570998480</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"behet shfaqja e kredive tek dashbordi i klientit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716571331628</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716571331628</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"behet shfaqja e kredive tek dashbordi i klientit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716584194449</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716584194449</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"behet shfaqja e kredive tek dashbordi i klientit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716584877606</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716584877606</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"behet shfaqja e kredive tek dashbordi i klientit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716585080821</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716585080821</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"behet shfaqja e requestave nga userat\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716635185872</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716635185872</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"behet shfaqja e requestave nga userat\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716635351245</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716635351245</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"behet shfaqja e requestave nga userat\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716636322364</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716636322364</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"behet shfaqja e requestave nga userat\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716637210427</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716637210427</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"start\" />\r\n    <MESSAGE value=\"begin\" />\r\n    <MESSAGE value=\"b\" />\r\n    <MESSAGE value=\"b1\" />\r\n    <MESSAGE value=\"behet shfaqja e kredive tek dashbordi i klientit\" />\r\n    <MESSAGE value=\"behet shfaqja e requestave nga userat\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"behet shfaqja e requestave nga userat\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 92a4d093cc9ebbc974a9811f564a50c621c085f1)
++++ b/.idea/workspace.xml	(date 1716647052717)
+@@ -6,9 +6,16 @@
+   <component name="ChangeListManager">
+     <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="behet shfaqja e requestave nga userat">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/SessionMenager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/SessionMenager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/ClientService.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientProfile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/ClientProfile.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -91,7 +98,7 @@
+       <module name="KNK_Gr23" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.example.knk_gr23.App.*" />
++          <option name="PATTERN" value="com.example.knk_gr23.App.UserMenager" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -243,7 +250,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1716637210427</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="behet shfaqja e requestave nga userat">
++      <option name="closed" value="true" />
++      <created>1716641137238</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1716641137238</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">

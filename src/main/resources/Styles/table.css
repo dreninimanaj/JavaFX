@@ -1,0 +1,60 @@
+.table_container {
+    -fx-background-color: #EEEEEE;
+}
+
+.table_container TableView {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 10;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1;
+    -fx-border-radius: 0;
+}
+
+.table_container TableView .column-header-background {
+    -fx-background-color: #EEEEEE;
+}
+
+.table_container TableView .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table_container TableView .table-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.1em;
+    -fx-font-family: "Calibri Light";
+}
+
+.table_container TableView .table-cell:selected {
+    -fx-background-color: #CCCCCC;
+    -fx-text-fill: #000000;
+}
+
+.table_container TableView .column-header {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.1em;
+    -fx-font-family: "Calibri Light";
+}
+
+.table_container Button {
+    -fx-pref-width: 115;
+    -fx-pref-height: 40;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #132A13;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center_left;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 6);
+}
+
+.table_container Button:hover {
+    -fx-cursor: hand;
+}
+
+.table_container Button FontAwesomeIconView {
+    -fx-fill: #132A13;
+}
