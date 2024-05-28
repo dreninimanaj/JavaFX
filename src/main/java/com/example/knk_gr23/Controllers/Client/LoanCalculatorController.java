@@ -173,7 +173,7 @@ public class LoanCalculatorController implements Initializable {
         this.interest_paid.setText(resourceBundle.getString("lblInterestPaid"));
         this.total_paid.setText(resourceBundle.getString("lblTotalPaid"));
         this.btnCalculate.setText(resourceBundle.getString("lblCalculate"));
-        this.btnExit.setText(resourceBundle.getString("lblExit"));
+        this.btnExit.setText(resourceBundle.getString("lblApply"));
 
         initializeTableColumns();
     }
