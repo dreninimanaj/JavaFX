@@ -1,7 +1,9 @@
 package com.example.knk_gr23.Controllers.Client;
 
+import com.example.knk_gr23.App.SessionMenager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -20,6 +22,18 @@ public class ClientProfileController implements Initializable {
     private Text address;
     @FXML
     private Text employment_status;
+    @FXML
+    private Label emri_lbl;
+    @FXML
+    private Label mbiemri_lbl;
+    @FXML
+    private Label telefoni_lbl;
+    @FXML
+    private Label emaili_lbl;
+    @FXML
+    private Label punsimi_lbl;
+    @FXML
+    private Label adresa_lbl;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,9 +50,6 @@ public class ClientProfileController implements Initializable {
         adresa_lbl.setText(SessionMenager.getClient().getAddress());
         punsimi_lbl.setText(SessionMenager.getClient().getEmploymentStatus());
 
-
-
     }
 
 }
-

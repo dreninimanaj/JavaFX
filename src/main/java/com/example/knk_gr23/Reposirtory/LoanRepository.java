@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.example.knk_gr23.Models.Client;
 import com.example.knk_gr23.Models.Loan;
 import com.example.knk_gr23.database.DatabaseUtil;
-import com.example.knk_gr23.Models.User;
 
 public class LoanRepository {
 
     // Method to get all loans by client_id
-    public static List<Loan> getAllLoansByUser(User user)
+    public static List<Loan> getAllLoansByUser(Client client)
     {
+        //System.out.println("Preparing statement: " + query);
+        System.out.println("Client ID: " + client.getClientId());
 //        User user = new User();
         List<Loan> loans = new ArrayList<>();
         String query = "SELECT * FROM loans WHERE client_id = ?";
@@ -27,15 +29,23 @@ public class LoanRepository {
 
 //            int clientId = user.getId(); // Assuming user_id is the client_id
             // Log the prepared statement and the client_id being queried
+
+
+            System.out.println("Preparing statement: " + query);
+            System.out.println("Client ID: " + client.getClientId());
             System.out.println("Preparing statement: " + query);
 //            System.out.println("Setting client_id parameter: " + clientId);
 
-            pstmt.setInt(1, user.getId());
+            System.out.println("Preparing statement: " + query);
+            System.out.println("Client ID: " + client.getClientId());
+            pstmt.setInt(1, client.getClientId());
+            System.out.println("bkans");
             try (ResultSet rs = pstmt.executeQuery()) {
 
                 // Log the execution of the query
                 System.out.println("Executing query...");
 
+                System.out.println("hsjkdn d");
                 while (rs.next()) {
                     // Create and add the Loan object from the ResultSet to the list
                     System.out.println("1"+getFromResultSet(rs));
@@ -47,6 +57,23 @@ public class LoanRepository {
             e.printStackTrace();
         }
         return loans;
+    }
+    public static Loan findLoanById(int loanId) {
+        String query = "SELECT * FROM loans WHERE loan_id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setInt(1, loanId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return getFromResultSet(rs);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to fetch loan by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
     }
 
     // Helper method to create a Loan object from a ResultSet

@@ -47,35 +47,6 @@ public class LoanDto {
     /*
      * Function to build loan schedule
      * */
-    public void buildTable(){
-
-        double monthlyRate = ir / 12 /100;
-
-        int months = duration * 12;
-
-        monthlyPayment = calcPayment(monthlyRate, months);
-
-        double irPayment, amountPaid, newBalance;
-
-        double balance = amount;
-
-        for (int month = 1; month <= months; month++) {
-            irPayment = balance * monthlyRate; // Corrected this line
-            amountPaid = monthlyPayment - irPayment;
-            newBalance = balance - amountPaid;
-
-            PaymentDto object = new PaymentDto(month, balance, monthlyPayment, irPayment, amountPaid, newBalance);
-
-            payments.add(object);
-
-            this.totalInterest += irPayment;
-            balance = newBalance; // Update balance for the next iteration
-        }
-
-
-        totalPaid = amount + totalInterest;
-
-   }
 
     public double getTotalInterest() {
 
@@ -94,6 +65,48 @@ public class LoanDto {
         return this.monthlyPayment;
     }
 
+    public void setMonthlyPayment(double monthlyPayment) {
+        this.monthlyPayment = monthlyPayment;
+    }
+    public void setTotalInterest(double totalInterest) {
+        this.totalInterest = totalInterest;
+    }
+    public void setTotalPaid(double totalPaid) {
+        this.totalPaid = totalPaid;
+    }
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public double getInterestRate() {
+        return ir;
+    }
+
+    public void setInterestRate(double ir) {
+        this.ir = ir;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    // Method to add a payment to the list
+    public void addPayment(PaymentDto payment) {
+        this.payments.add(payment);
+    }
+
+    // Method to add interest to the total interest
+    public void addInterest(double interest) {
+        this.totalInterest += interest;
+    }
 
 }
 

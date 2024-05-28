@@ -1,17 +1,107 @@
 package com.example.knk_gr23.Reposirtory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.knk_gr23.Models.User;
+import com.example.knk_gr23.Models.dto.CreateClientDto;
 import com.example.knk_gr23.Models.dto.CreateUserDto;
 import com.example.knk_gr23.database.DatabaseUtil;
 
 public class UserRepository {
+    public static boolean signUp(CreateClientDto userData) {
+        System.out.println("Username: " + userData.getUsername());
+        System.out.println("Password Hash: " + userData.getPasswordHash());
+        System.out.println("Email: " + userData.getEmail());
+        System.out.println("Role: " + userData.getRole());
+        System.out.println("Salt: " + userData.getSalt());
+
+        String userQuery = """
+            INSERT INTO users (username, password_hash, email, role, salt)
+            VALUES (?, ?, ?, ?, ?)
+            """;
+        String clientQuery = """
+            INSERT INTO clients (name, address, phone, email, employment_status, income, credit_history, debt_to_income_ratio, users_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """;
+
+        // Check if the username already exists
+        String checkUserQuery = "SELECT COUNT(*) FROM users WHERE username = ?";
+
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement checkUserStmt = conn.prepareStatement(checkUserQuery);
+             PreparedStatement userStmt = conn.prepareStatement(userQuery, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement clientStmt = conn.prepareStatement(clientQuery)) {
+
+            // Check for duplicate username
+            checkUserStmt.setString(1, userData.getUsername());
+            ResultSet rsCheck = checkUserStmt.executeQuery();
+            if (rsCheck.next() && rsCheck.getInt(1) > 0) {
+                System.err.println("Username already exists: " + userData.getUsername());
+                return false; // Username already exists
+            }
+
+            conn.setAutoCommit(false);  // Start transaction
+
+            System.out.println("Preparing to insert user");
+
+            // Insert into users table
+            userStmt.setString(1, userData.getUsername());
+            userStmt.setString(2, userData.getPasswordHash());
+            userStmt.setString(3, userData.getEmail());
+            userStmt.setString(4, userData.getRole());
+            userStmt.setString(5, userData.getSalt());
+
+            try {
+                userStmt.executeUpdate();
+            } catch (SQLException e) {
+                System.err.println("Error executing userStmt.executeUpdate(): " + e.getMessage());
+                e.printStackTrace();
+                conn.rollback();  // Rollback transaction on error
+                return false;
+            }
+
+            System.out.println("User inserted");
+
+            // Get the generated user_id
+            ResultSet rs = userStmt.getGeneratedKeys();
+            if (rs.next()) {
+                int userId = rs.getInt(1);
+
+                // Insert into clients table
+                clientStmt.setString(1, userData.getName());
+                clientStmt.setString(2, userData.getAddress());
+                clientStmt.setString(3, userData.getPhone());
+                clientStmt.setString(4, userData.getEmail());
+                clientStmt.setString(5, userData.getEmploymentStatus());
+                clientStmt.setDouble(6, userData.getIncome());
+                clientStmt.setString(7, userData.getCreditHistory());
+                clientStmt.setDouble(8, userData.getDebtToIncomeRatio());
+                clientStmt.setInt(9, userId);
+
+                try {
+                    clientStmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.err.println("Error executing clientStmt.executeUpdate(): " + e.getMessage());
+                    e.printStackTrace();
+                    conn.rollback();  // Rollback transaction on error
+                    return false;
+                }
+
+                conn.commit();  // Commit transaction
+                return true;
+            } else {
+                conn.rollback();  // Rollback transaction if no user ID was generated
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Failed to sign up user: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     public static boolean create(CreateUserDto userData) throws SQLException {
         String query = """

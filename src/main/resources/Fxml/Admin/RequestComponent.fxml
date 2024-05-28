@@ -4,12 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="box_container" stylesheets="@../../Styles/CreditBox.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_gr23.Controllers.Admin.RequestComponentController">
-    <children>
-        <Label fx:id="loanIdLabel" layoutX="10.0" layoutY="10.0" styleClass="credit_date_lbl" text="Loan ID" />
-        <Label fx:id="loanAmountLabel" layoutX="78.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="Loan Amount" />
-        <Label fx:id="loanStatusLabel" layoutX="198.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="Loan Status" />
-        <Button fx:id="acceptLoanButton" layoutX="289.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAcceptLoan" prefWidth="102.0" text="Accept Loan" AnchorPane.rightAnchor="145.8" />
-        <Button fx:id="viewUserInfoButton" layoutX="428.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleViewUserInfo" prefWidth="107.0" text="View User Info" AnchorPane.rightAnchor="6.7999999999999545" />
-    </children>
+<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="box_container" stylesheets="@../../Styles/CreditBox.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.knk_gr23.Controllers.Admin.RequestComponentController">
+    <Label fx:id="loanIdLabel" layoutX="10.0" layoutY="10.0" styleClass="credit_date_lbl" text="Loan ID"/>
+    <Label fx:id="loanAmountLabel" layoutX="78.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="Loan Amount"/>
+    <Label fx:id="loanStatusLabel" layoutX="198.0" layoutY="10.0" styleClass="credit_pAddress_lbl" text="Loan Status"/>
+    <Button fx:id="acceptLoanButton" layoutX="289.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAcceptLoan"
+            prefWidth="102.0" text="Accept Loan" AnchorPane.rightAnchor="145.8"/>
+    <Button fx:id="viewUserInfoButton" layoutX="428.0" layoutY="10.0" mnemonicParsing="false"
+            onAction="#handleViewUserInfo" prefWidth="107.0" text="View User Info"
+            AnchorPane.rightAnchor="6.7999999999999545"/>
 </AnchorPane>

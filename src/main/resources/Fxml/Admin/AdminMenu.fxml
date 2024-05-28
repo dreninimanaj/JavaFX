@@ -11,7 +11,7 @@
    <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <FontAwesomeIconView glyphName="DOLLAR" size="30" />
-         <Text fx:id="secure_credit" strokeType="OUTSIDE" strokeWidth="0.0" text="\%lblSecureCredit" />
+         <Text fx:id="secure_credit" strokeType="OUTSIDE" strokeWidth="0.0" text="SecureCredit" />
       </VBox>
       <VBox layoutX="40.0" layoutY="265.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <Button fx:id="create_client_btn" mnemonicParsing="false" onAction="#handleCreateClient" text="\%lblCreateClient">
@@ -34,7 +34,7 @@
          </Button>
          <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#handleLogOut" styleClass="alt_menu_button" text="\%lblLogout">
             <graphic>
-               <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
+               <FontAwesomeIconView glyphName="ARROW_RIGHT" size="20" />
             </graphic>
          </Button>
       </VBox>

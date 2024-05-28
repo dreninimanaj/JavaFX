@@ -1,42 +1,35 @@
 package com.example.knk_gr23.Services;
 
 import com.example.knk_gr23.Models.dto.PaymentDto;
+import com.example.knk_gr23.Reposirtory.LoanCalculatorRepository;
 
-import java.util.List;
 
 import com.example.knk_gr23.Models.dto.LoanDto;
-import com.example.knk_gr23.Controllers.Client.LoanCalculatorController;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class LoanCalculatorService {
-    public void buildTable(){
+    public static void buildTable(LoanDto loan, int clientId) throws SQLException {
+        double monthlyRate = loan.getInterestRate() / 12 / 100;
+        int months = loan.getDuration() * 12;
+        loan.setMonthlyPayment(loan.calcPayment(monthlyRate, months));
 
-        LoanDto loan = new LoanDto();
-        double monthlyRate = loan.ir/ 12 /100;
-
-        int months = loan.duration * 12;
-
-        loan.monthlyPayment = this.calcPayment(monthlyRate, months);
-
-        double irPayment, amountPaid, newBalance;
-
-        double balance = loan.amount;
-
+        double balance = loan.getAmount();
         for (int month = 1; month <= months; month++) {
-            irPayment = balance * monthlyRate; // Corrected this line
-            amountPaid = loan.monthlyPayment - irPayment;
-            newBalance = balance - amountPaid;
+            double interestPayment = balance * monthlyRate;
+            double amountPaid = loan.getMonthlyPayment() - interestPayment;
+            double newBalance = balance - amountPaid;
 
-            PaymentDto object = new PaymentDto(month, balance, loan.monthlyPayment, irPayment, amountPaid, newBalance);
+            PaymentDto payment = new PaymentDto(month, balance, loan.getMonthlyPayment(), interestPayment, amountPaid, newBalance);
+            loan.addPayment(payment);
 
-            loan.payments.add(object);
-
-            loan.totalInterest += irPayment;
-            balance = newBalance; // Update balance for the next iteration
+            loan.addInterest(interestPayment);
+            balance = newBalance;
         }
 
-
-        loan.totalPaid = loan.amount + loan.totalInterest;
-
+        loan.setTotalPaid(loan.getAmount() + loan.getTotalInterest());
+        LoanCalculatorRepository.saveLoan(loan, clientId);
     }
 
     public double calcPayment(double rate, int months){
@@ -44,8 +37,14 @@ public class LoanCalculatorService {
         return (rate * loan.amount) / (1 - Math.pow(1 + rate, -months));
     }
 
-    /*
-     * Fu
-     * nction to build loan schedule
-     * */
+    public static List<PaymentDto> getPaymentsForLoan(int loanId) {
+        return LoanCalculatorRepository.findPaymentsByLoanId(loanId);
+    }
+
+
+    public static LoanDto getLoanById(int loanId) {
+        return LoanCalculatorRepository.findLoanById(loanId);
+    }
+
 }
+

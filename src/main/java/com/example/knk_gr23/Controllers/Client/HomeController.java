@@ -1,19 +1,10 @@
 package com.example.knk_gr23.Controllers.Client;
 
-import com.example.knk_gr23.App.Navigator;
 import com.example.knk_gr23.App.SessionMenager;
 import com.example.knk_gr23.Models.Loan;
-import com.example.knk_gr23.Models.User;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -28,39 +19,14 @@ import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
     @FXML
-    private ListView<AnchorPane> loans_listView;
-//    @FXML
-//    public ListView loans_listview;
-
-    @FXML
-    private Button add_loan_button;
-
-    @FXML
     private Text lblusername;
-
     @FXML
     private Text accounts_summary;
-
     @FXML
     private VBox loansListView;
 
 
-    @FXML
-    public void handleApply(ActionEvent ae) {
-        Navigator.navigate(ae, Navigator.PAY_PAGE);
-    }
 
-
-
-    @FXML
-    public void initialize() throws SQLException {
-        lblusername.setText("Hi! " + SessionMenager.getUser().getUsername());
-        // Assume the user is retrieved from some authentication context or session
-        User user = new User();
-        List<Loan> loans = LoanService.getAllLoansByUser(SessionMenager.getUser());
-
-        displayLoans(loans);
-    }
     private void displayLoans(List<Loan> loansList){
         double totalHeight=300;
         loansListView.getChildren().clear();
@@ -83,9 +49,17 @@ public class HomeController implements Initializable {
         }
     }
 
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       // this.lblusername.setText(resourceBundle.getString("lblHi"));
+        List<Loan> loans = null;
+        try {
+            loans = LoanService.getAllLoansByUser(SessionMenager.getClient());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        displayLoans(loans);
+        lblusername.setText("Hi! " + SessionMenager.getUser().getUsername());
+        //this.lblusername.setText(resourceBundle.getString("lblHi"));
         this.accounts_summary.setText(resourceBundle.getString("lblAccountsSummary"));
-        this.add_loan_button.setText(resourceBundle.getString("lblButton"));
     }
 }

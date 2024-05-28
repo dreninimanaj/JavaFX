@@ -21,12 +21,6 @@ public class AdminMenuControllers implements Initializable {
     private Button logout_btn;
 
     @FXML
-    private Text secure_credit;
-
-
-
-
-    @FXML
     public void handleLogOut(ActionEvent ae) {
         Navigator.navigate(ae, Navigator.LOGIN_PAGE);
     }
@@ -37,11 +31,11 @@ public class AdminMenuControllers implements Initializable {
         this.clients_btn.setText(resourceBundle.getString("lblClients"));
         this.requests_btn.setText(resourceBundle.getString("lblRequests"));
         this.logout_btn.setText(resourceBundle.getString("lblLogout"));
-        this.secure_credit.setText(resourceBundle.getString("lblSecureCredit"));
+
     }
 
     public void handleCreateClient(ActionEvent actionEvent) {
-       // Navigator.navigate(actionEvent, Navigator.CREATE_CLIENT_PAGE);
+         Navigator.navigate(actionEvent, Navigator.SIGN_UP_PAGE);
     }
 
     public void handleClients(ActionEvent actionEvent) {

@@ -24,6 +24,7 @@ public class AdminController implements Initializable {
     private VBox requestsListView;
 
     private void displayRequests(List<Loan> loansList){
+        System.out.println("hello");
         double totalHeight=300;
         requestsListView.getChildren().clear();
         for (Loan loan : loansList) {
@@ -48,6 +49,7 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Initializing HomeController...");
         try {
             List<Loan> pendingLoans = PendingLoanService.getAllPendingLoans();
             displayRequests(pendingLoans);

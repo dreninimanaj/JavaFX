@@ -57,34 +57,42 @@ public class ClientRepository {
             return null;
         }
     }
-        public static Client getClientByUserId(int userId) throws SQLException {
-            String query = "SELECT * FROM clients WHERE users_id = ?";
-            try (Connection conn = DatabaseUtil.getConnection();
-                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-                pstmt.setInt(1, userId);
-                try (ResultSet rs = pstmt.executeQuery()) {
-                    if (rs.next()) {
-                        return getClientFromResultSet(rs);
-                    }
+    public static Client findClientByUserId(int userId) {
+        String query = "SELECT * FROM clients WHERE users_id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setInt(1, userId);
+            System.out.println("Executing query: " + query + " with user_id: " + userId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return getClientFromResultSet(rs);
+                } else {
+                    System.out.println("No client found for user_id: " + userId);
                 }
             }
-            return null;
+        } catch (SQLException e) {
+            System.err.println("Failed to fetch client by user ID: " + e.getMessage());
+            e.printStackTrace();
         }
+        return null; // or throw an exception if preferred
+    }
 
-        private static Client getClientFromResultSet(ResultSet rs) throws SQLException {
-            int clientId = rs.getInt("client_id");
-            String name = rs.getString("name");
-            String address = rs.getString("address");
-            String phone = rs.getString("phone");
-            String email = rs.getString("email");
-            String employmentStatus = rs.getString("employment_status");
-            BigDecimal income = rs.getBigDecimal("income");
-            String creditHistory = rs.getString("credit_history");
-            BigDecimal debtToIncomeRatio = rs.getBigDecimal("debt_to_income_ratio");
-            int usersId = rs.getInt("users_id");
 
-            return new Client(clientId, name, address, phone, email, employmentStatus, income, creditHistory, debtToIncomeRatio, usersId);
-        }
+    // Helper method to create a Client object from a ResultSet
+    private static Client getClientFromResultSet(ResultSet rs) throws SQLException {
+        int clientId = rs.getInt("client_id");
+        String name = rs.getString("name");
+        String address = rs.getString("address");
+        String phone = rs.getString("phone");
+        String email = rs.getString("email");
+        String employmentStatus = rs.getString("employment_status");
+        BigDecimal income = rs.getBigDecimal("income");
+        String creditHistory = rs.getString("credit_history");
+        BigDecimal debtToIncomeRatio = rs.getBigDecimal("debt_to_income_ratio");
+        int usersId = rs.getInt("users_id");
+        System.out.println("Client found: " + clientId);
+        return new Client(clientId, name, address, phone, email, employmentStatus, income, creditHistory, debtToIncomeRatio, usersId);
     }
 }
 

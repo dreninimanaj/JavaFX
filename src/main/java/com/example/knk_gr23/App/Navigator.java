@@ -1,14 +1,19 @@
 package com.example.knk_gr23.App;
 
+import com.example.knk_gr23.Controllers.Client.TableController;
+import com.example.knk_gr23.Models.dto.PaymentDto;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -21,9 +26,12 @@ public class Navigator {
     public final static String TABLE_PAGE = "/Fxml/Client/TableLoans.fxml";
     public final static String ADD_LOAN_PAGE = "/Fxml/Client/AddLoan.fxml";
     public final static String CLIENT_PROFILE_PAGE = "/Fxml/Client/ClientProfile.fxml";
+    public final static String PROFILE_ADMIN = "/Fxml/Admin/ProfileAdmin.fxml";
+
 
     public final static String REQUESTS_PAGE = "/Fxml/Admin/Requests.fxml";
-    public final static String CALCULATOR_PAGE = "/Fxml/Client/LoanCalculator.fxml";
+    public final static String CALCULATOR_PAGE = "/Fxml/Client/Calculator.fxml";
+    public final static String SIGN_UP_PAGE = "/Fxml/Admin/SignUp.fxml";
     // Method to navigate using an event
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
@@ -78,7 +86,7 @@ public class Navigator {
         }
     }
 
-//    private void changeLanguage(){
+    //    private void changeLanguage(){
 //        Locale locale = Locale.of("sq");
 //        Locale.setDefault(locale);
 //    }

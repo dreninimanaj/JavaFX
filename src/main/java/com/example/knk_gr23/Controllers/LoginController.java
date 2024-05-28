@@ -3,6 +3,7 @@ package com.example.knk_gr23.Controllers;
 import com.example.knk_gr23.App.Navigator;
 import com.example.knk_gr23.App.SessionMenager;
 import com.example.knk_gr23.Controllers.Client.ClientController;
+import com.example.knk_gr23.Models.Client;
 import com.example.knk_gr23.Models.User;
 import com.example.knk_gr23.Models.dto.LoginUserDto;
 import com.example.knk_gr23.Services.UserService;
@@ -47,7 +48,6 @@ public class LoginController implements Initializable {
             SessionMenager.setUser(user);
             String role = user.getRole();
             System.out.println("role: " + role);
-//            lblUsername.setText("hi!" + SessionMenager.getUser().getUsername());
 
             if (role == null) {
                 this.error_lbl.setText("User role is undefined.");
@@ -56,12 +56,18 @@ public class LoginController implements Initializable {
                 Navigator.navigate(ae, Navigator.ADMIN_PAGE);
             } else {
                 System.out.println("client");
-                Navigator.navigate(ae, Navigator.HOME_PAGE);
-                SessionMenager.setClient(ClientService.getClient(user.getId()));
+                Client client = ClientService.getClientByUserId(user.getId());
+                if (client != null) {
+                    SessionMenager.setClient(client);
+                    Navigator.navigate(ae, Navigator.HOME_PAGE);
+                } else {
+                    this.error_lbl.setText("Client details not found.");
+                }
             }
             System.out.println("shini");
         }
     }
+
 
 
 

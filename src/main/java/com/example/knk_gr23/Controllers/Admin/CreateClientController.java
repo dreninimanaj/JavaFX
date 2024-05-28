@@ -1,78 +1,101 @@
 package com.example.knk_gr23.Controllers.Admin;
 
+import com.example.knk_gr23.Models.dto.CreateClientDto;
+import com.example.knk_gr23.Reposirtory.UserRepository;
+import com.example.knk_gr23.Services.PasswordHasher;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class CreateClientController {
 
-public class CreateClientController implements Initializable {
-    public TextField fName_fld;
-    public TextField lName_fld;
-    public TextField password_fld;
-    public TextField pID_fld;
-    public TextField hAddress_fld;
-    public TextField cHistory_fld;
-    public TextField empStatus_fld;
-    public TextField Income_fld;
-    public TextField cAmount_fld;
-    public TextField interest_fld;
-    public TextField dToI_FLD;
-    public TextField duration_fld;
-    public Button create_client_btn;
-
-
+    @FXML
+    private Text create_client_account;
     @FXML
     private Text first_name;
-
     @FXML
     private Text last_name;
-
+    @FXML
+    private Text username;
     @FXML
     private Text password;
-
+    @FXML
+    private Text email;
     @FXML
     private Text personal_id;
     @FXML
-    private Text home_addres;
+    private Text home_address;
+    @FXML
+    private Text phone;
     @FXML
     private Text credit_history;
     @FXML
     private Text employment_status;
-
     @FXML
     private Text income;
+
     @FXML
-    private Text credit_amount;
+    private TextField fName_fld;
     @FXML
-    private Text interest;
+    private TextField lName_fld;
     @FXML
-    private Text debt_income;
+    private TextField username_fld;
     @FXML
-    private Text duration;
+    private TextField password_fld;
+    @FXML
+    private TextField email_fld;
+    @FXML
+    private TextField pID_fld;
+    @FXML
+    private TextField hAddress_fld;
+    @FXML
+    private TextField phone_fld;
+    @FXML
+    private TextField cHistory_fld;
+    @FXML
+    private TextField empStatus_fld;
+    @FXML
+    private TextField Income_fld;
+    @FXML
+    private Button create_client_btn;
 
+    @FXML
+    private void handleCreateClient() {
+        try {
+            String salt = PasswordHasher.generateSalt();
+            String passwordHash = PasswordHasher.generateSaltedHash(password_fld.getText(), salt);
+            CreateClientDto createClientDto = new CreateClientDto(
+                    fName_fld.getText(),
+                    passwordHash, // Ideally, you should hash the password here
+                    email_fld.getText(),
+                    "customer",
+                    salt,  // You should generate a real salt here
+                    fName_fld.getText() + " " + lName_fld.getText(),
+                    hAddress_fld.getText(),
+                    phone_fld.getText(),
+                    empStatus_fld.getText(),
+                    Double.parseDouble(Income_fld.getText()),
+                    cHistory_fld.getText(),
+                    0.0  // Assuming a default value for debtToIncomeRatio
+            );
 
+            boolean success = UserRepository.signUp(createClientDto);
 
+            Alert alert = new Alert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
+            alert.setTitle(success ? "Success" : "Error");
+            alert.setHeaderText(null);
+            alert.setContentText(success ? "Client created successfully!" : "Username already exists. Please choose another username.");
+            alert.showAndWait();
 
-
-
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.first_name.setText(resourceBundle.getString("lblFirstName"));
-        this.last_name.setText(resourceBundle.getString("lblLastName"));
-        this.password.setText(resourceBundle.getString("lblPassword"));
-        this.personal_id.setText(resourceBundle.getString("lblPersonalID"));
-        this.home_addres.setText(resourceBundle.getString("lblHomeAddres"));
-        this.credit_history.setText(resourceBundle.getString("lblCreditHistory"));
-        this.employment_status.setText(resourceBundle.getString("lblEmploymentstatus"));
-        this.income.setText(resourceBundle.getString("lblIncome"));
-        this.credit_amount.setText(resourceBundle.getString("lblCreditAmount"));
-        this.interest.setText(resourceBundle.getString("lblInterest"));
-        this.debt_income.setText(resourceBundle.getString("lblDebtToIncomeRatio"));
-        this.duration.setText(resourceBundle.getString("lblDuration"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("An error occurred: " + e.getMessage());
+            alert.showAndWait();
+        }
     }
-
 }
-

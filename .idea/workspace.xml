@@ -4,11 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="behet shfaqja e requestave nga userat">
+    <list default="true" id="757eda13-be27-4cef-a5c0-141e81a2eafb" name="Changes" comment="behet shfaqja e kredive tek dashbordi i klientit">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0d25e3b-7008-4648-9f5e-bcce46808d52.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0d25e3b-7008-4648-9f5e-bcce46808d52.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/SessionMenager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/App/SessionMenager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/AdminMenuControllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/ClientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/CreateClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/CreateClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/CreditsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/CreditsComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/RequestComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Admin/RequestComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/ClientsComponentController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/LoanComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/PayDebtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/Client/PayDebtController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/dto/LoanDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/dto/LoanDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Models/dto/PaymentDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/LoanRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Reposirtory/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/LoanCalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/LoanCalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/LoanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/Services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/knk_gr23/database/DatabaseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/AdminMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/CreateClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/CreateClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/RequestComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Admin/RequestComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanCalculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanCalculator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/LoanComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/PayDebt.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Client/TableLoans.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Client/TableLoans.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +51,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -32,6 +64,7 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -42,7 +75,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/DiellzaJ/KNK_Gr23.git&quot;,
-    &quot;accountId&quot;: &quot;e533b09b-7918-48e2-8e03-35e4a11eabbc&quot;
+    &quot;accountId&quot;: &quot;b16fd151-d8c9-4785-a795-27e3016b4394&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -81,6 +114,10 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\fakulltet\blendi\KNK_Gr23\src\main\resources\Fxml\Client" />
+      <recent name="C:\Users\Admin\Desktop\fakulltet\blendi\KNK_Gr23\src\main\resources\Fxml\Admin" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -138,6 +175,8 @@
       <workItem from="1716576558091" duration="2374000" />
       <workItem from="1716578983452" duration="6384000" />
       <workItem from="1716626826780" duration="3223000" />
+      <workItem from="1716772547511" duration="47000" />
+      <workItem from="1716772606245" duration="36397000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <option name="closed" value="true" />

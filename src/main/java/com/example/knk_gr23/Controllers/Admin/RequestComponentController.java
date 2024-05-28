@@ -1,37 +1,30 @@
 package com.example.knk_gr23.Controllers.Admin;
 
+import com.example.knk_gr23.App.Navigator;
+import com.example.knk_gr23.App.SessionMenager;
 import com.example.knk_gr23.Models.Loan;
+import com.example.knk_gr23.Reposirtory.ClientRepository;
 import com.example.knk_gr23.Services.LoanService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class RequestComponentController {
 
+public class RequestComponentController{
+    @FXML
+    private Button viewUserInfoButton;
+    @FXML
+    private Button acceptLoanButton;
+    @FXML
+    private Label loanStatusLabel;
+    @FXML
+    private Label loanAmountLabel;
     @FXML
     private Label loanIdLabel;
 
-    @FXML
-    private Label loanAmountLabel;
-
-    @FXML
-    private Label loanStatusLabel;
-
-    @FXML
-    private Button acceptLoanButton;
-
-    @FXML
-    private Button viewUserInfoButton;
 
     private Loan loan;
-
-    public void setData(Loan loan) {
-        this.loan = loan;
-        loanIdLabel.setText(String.valueOf(loan.getLoan_id()));
-        loanAmountLabel.setText(String.valueOf(loan.getLoan_amount()));
-        loanStatusLabel.setText(loan.getLoan_status());
-    }
 
     @FXML
     private void handleAcceptLoan(ActionEvent event) {
@@ -49,10 +42,19 @@ public class RequestComponentController {
         }
     }
 
+
     @FXML
     private void handleViewUserInfo(ActionEvent event) {
         // Implement the logic to view user information
         System.out.println("Viewing user info for client ID: " + loan.getClient_id());
-        // Navigate to the user info page or display a popup with user info
+        loan.getClient_id();
+        SessionMenager.setClient(ClientRepository.findClientByUserId(loan.getClient_id()));
+        Navigator.navigate(event, Navigator.PROFILE_ADMIN);
+    }
+    public void setData(Loan loan) {
+        this.loan = loan;
+        loanIdLabel.setText(String.valueOf(loan.getLoan_id()));
+        loanAmountLabel.setText(String.valueOf(loan.getLoan_amount()));
+        loanStatusLabel.setText(loan.getLoan_status());
     }
 }
